@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Research Plan: Image-Conditioned Sufficiency</title>
+<style>
+  @page { size: letter; margin: 0.48in 0.58in; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Liberation Serif", "Times New Roman", Times, serif;
+    font-size: 10.5pt;
+    line-height: 1.26;
+    color: #1a1a1a;
+  }
+  h1 { font-size: 13.5pt; line-height: 1.25; margin: 0 0 2pt; font-weight: 700; }
+  .kicker { font-family: "Liberation Sans", Arial, sans-serif; font-size: 8.5pt; letter-spacing: 0.04em; text-transform: uppercase; color: #555; margin: 0 0 8pt; }
+  h2 { font-family: "Liberation Sans", Arial, sans-serif; font-size: 10.5pt; margin: 7pt 0 1pt; font-weight: 700; }
+  p { margin: 0 0 4pt; }
+  ul { margin: 2pt 0 4pt 1.1em; padding: 0; }
+  li { margin: 0 0 2pt; }
+  table { width: 100%; border-collapse: collapse; margin: 3pt 0 0; font-size: 9pt; line-height: 1.22; }
+  th, td { border: 0.6pt solid #bbb; padding: 2pt 4pt; vertical-align: top; text-align: left; }
+  th { font-family: "Liberation Sans", Arial, sans-serif; background: #f3f3f3; font-weight: 700; }
+  .fig { margin: 6pt 0 0; }
+  .cap { font-family: "Liberation Sans", Arial, sans-serif; font-size: 8.5pt; color: #333; margin: 2pt 0 0; }
+  svg { width: 100%; height: auto; display: block; }
+</style>
+</head>
+<body>
+<p class="kicker">Research plan · one page · based on SketchThinker-R1 (arXiv:2601.02825)</p>
+<h1>Image-Conditioned Sufficiency for Sketch-Style Multimodal Reasoning</h1>
+
+<h2>Working Title</h2>
+<p>Image-Conditioned Sufficiency: When a Sketch May Delete a Reasoning Step.</p>
+
+<h2>Problem Statement</h2>
+<p>SketchThinker-R1 cuts reasoning tokens by rewarding a surface “sketch” style whose judge never sees the image or the question. The claim of no accuracy loss is shown only for already-short traces on 3B and 7B models, and it is confounded with a GPT-5 rewrite of the training text.</p>
+
+<h2>Proposed Solution</h2>
+<p>We replace the style label with a sufficiency reward: a step may be deleted only when the remaining trace still determines the answer given the image and the question. Brevity is applied below a difficulty threshold and withheld when a step carries visual evidence, so hard items are not shortened uniformly. The same rewriter also produces a length-preserving control, which separates distillation from compression. A counterfactual image that changes one omitted visual fact tests the deletion: if the answer changes and the sketch text does not, that step should have been kept.</p>
+
+<h2>Key Research Questions</h2>
+<ul>
+  <li>Does text-only sketching disproportionately delete visual-evidence steps?</li>
+  <li>At a matched token budget, does image-conditioned sufficiency recover accuracy on high-difficulty and perception-heavy items?</li>
+  <li>After the rewriter and the training budget are matched, does any remaining gain come from sufficiency rather than from distillation?</li>
+</ul>
+
+<h2>Expected Outcome</h2>
+<p>A deletion rule tied to visual evidence and difficulty, and a measurement of whether sketch-style efficiency survives once those factors are controlled.</p>
+
+<div class="fig">
+<svg viewBox="0 0 720 158" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two pipelines: style reward versus sufficiency reward">
+  <style>
+    .box { fill: #fff; stroke: #333; stroke-width: 1; }
+    .soft { fill: #f6f6f6; stroke: #333; stroke-width: 1; }
+    .accent { fill: #eef3f8; stroke: #1f4e79; stroke-width: 1.2; }
+    .h { font: 700 11px "Liberation Sans", Arial, sans-serif; fill: #1a1a1a; }
+    .t { font: 10px "Liberation Sans", Arial, sans-serif; fill: #1a1a1a; }
+    .s { font: 9px "Liberation Sans", Arial, sans-serif; fill: #333; }
+    .arr { stroke: #333; stroke-width: 1; fill: none; marker-end: url(#arrow); }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.2 L 8 5 L 0 8.8 z" fill="#333"/>
+    </marker>
+  </defs>
+  <text class="h" x="4" y="14">Figure 1. What is allowed to be deleted.</text>
+
+  <text class="s" x="4" y="36">SketchThinker-R1</text>
+  <rect class="soft" x="4" y="42" width="150" height="40" rx="2"/>
+  <text class="t" x="12" y="58">Long trace, text only</text>
+  <text class="s" x="12" y="72">Image and question hidden</text>
+  <line class="arr" x1="158" y1="62" x2="184" y2="62"/>
+  <rect class="soft" x="188" y="42" width="150" height="40" rx="2"/>
+  <text class="t" x="196" y="58">Style judge: 0 or 1</text>
+  <text class="s" x="196" y="72">“Looks like a numbered list”</text>
+  <line class="arr" x1="342" y1="62" x2="368" y2="62"/>
+  <rect class="soft" x="372" y="42" width="168" height="40" rx="2"/>
+  <text class="t" x="380" y="58">Fixed style weight</text>
+  <text class="s" x="380" y="72">Short trace for every item</text>
+
+  <text class="s" x="4" y="108">This plan</text>
+  <rect class="accent" x="4" y="114" width="150" height="46" rx="2"/>
+  <text class="t" x="12" y="132">Image, question, trace</text>
+  <text class="s" x="12" y="146">All three are visible</text>
+  <line class="arr" x1="158" y1="137" x2="184" y2="137"/>
+  <rect class="accent" x="188" y="114" width="210" height="46" rx="2"/>
+  <text class="t" x="196" y="132">Sufficiency: does the answer</text>
+  <text class="t" x="196" y="146">still follow if this step is cut?</text>
+  <line class="arr" x1="402" y1="137" x2="428" y2="137"/>
+  <rect class="accent" x="432" y="114" width="284" height="46" rx="2"/>
+  <text class="t" x="440" y="132">Easy item: delete the step</text>
+  <text class="t" x="440" y="146">Hard item, or visual evidence: keep it</text>
+</svg>
+<p class="cap">The top row is the paper’s reward. The bottom row is the proposed reward. A one-fact edit of the image is the check on the bottom row: if the answer changes while the sketch text does not, the deleted step was evidence.</p>
+</div>
+
+<h2>Comparison</h2>
+<table>
+  <thead>
+    <tr><th></th><th>SketchThinker-R1</th><th>This plan</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>What is rewarded</td><td>Sketch style: numbered and short</td><td>The remaining steps still entail the answer</td></tr>
+    <tr><td>What the judge sees</td><td>The thinking text only</td><td>Image, question, and trace</td></tr>
+    <tr><td>When the trace is short</td><td>A fixed reward weight for every item</td><td>Only below a difficulty threshold</td></tr>
+    <tr><td>Control for the rewriter</td><td>None. GPT-5 both shortens and may rewrite content</td><td>The same rewriter also writes a length-preserving control</td></tr>
+    <tr><td>Result that would refute the plan</td><td>—</td><td>Sufficiency does not beat the style reward once the budget and the rewriter match, or a one-fact image edit changes the answer while the kept trace never states that fact</td></tr>
+  </tbody>
+</table>
+</body>
+</html>
