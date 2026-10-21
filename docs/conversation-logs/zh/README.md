@@ -17,3 +17,4 @@
 | [11](2026-10-21-11-sketchthinker-existing-directions.md) | 2026-10-21 | 再给三个方向（允许已有人做过） | 已完成 |
 | [12](2026-10-21-12-direction-questions-experiments.md) | 2026-10-21 | 每个方向的研究问题与验证实验 | 已完成；方向三的验证判据已更正 |
 | [13](2026-10-21-13-answer-check.md) | 2026-10-21 | 检查上一轮答案是否符合问题 | 已完成 |
+| [14](2026-10-21-14-research-plan.md) | 2026-10-21 | 一页研究计划：看见图像的充分性奖励 | 已完成，见 `docs/research-plan/sketch-sufficiency.pdf` |
