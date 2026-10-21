@@ -13,3 +13,4 @@
 | [07](2026-10-21-07-sketchthinker-r1-limitations.md) | 2026-10-21 | SketchThinker-R1 方法的主要局限与潜在弱点 | 已完成分析 |
 | [08](2026-10-21-08-conversation-logging.md) | 2026-10-21 | 把所有对话结果以 Markdown 形式存入仓库 | [拉取请求 #4](https://github.com/Lc-wing/machine_learning_project/pull/4) 待合并 |
 | [09](2026-10-21-09-bilingual-logs.md) | 2026-10-21 | 对话记录分别生成全中文版和全英文版 | [拉取请求 #4](https://github.com/Lc-wing/machine_learning_project/pull/4) 待合并 |
+| [10](2026-10-21-10-sketchthinker-future-directions.md) | 2026-10-21 | 针对 SketchThinker-R1 局限的三个后续研究方向 | 已完成 |
