@@ -15,4 +15,5 @@
 | [09](2026-10-21-09-bilingual-logs.md) | 2026-10-21 | 对话记录分别生成全中文版和全英文版 | [拉取请求 #4](https://github.com/Lc-wing/machine_learning_project/pull/4) 待合并 |
 | [10](2026-10-21-10-sketchthinker-future-directions.md) | 2026-10-21 | 针对 SketchThinker-R1 局限的三个后续研究方向 | 已完成 |
 | [11](2026-10-21-11-sketchthinker-existing-directions.md) | 2026-10-21 | 再给三个方向（允许已有人做过） | 已完成 |
-| [12](2026-10-21-12-direction-questions-experiments.md) | 2026-10-21 | 每个方向的研究问题与验证实验 | 已完成 |
+| [12](2026-10-21-12-direction-questions-experiments.md) | 2026-10-21 | 每个方向的研究问题与验证实验 | 已完成；方向三的验证判据已更正 |
+| [13](2026-10-21-13-answer-check.md) | 2026-10-21 | 检查上一轮答案是否符合问题 | 已完成 |

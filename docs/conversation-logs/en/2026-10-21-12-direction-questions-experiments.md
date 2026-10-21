@@ -29,8 +29,8 @@ Each research question is falsifiable, as the Assumption Inverter requires. Each
 
 - **Research question**: Once the rewriting source, the training steps, and the total token budget match, and the x-axis is end-to-end latency including image tokens, does the sketch style still beat a same-model rewrite that keeps the original length, and beat answering with no reasoning?
 - **Experiment**: Four arms, same base model, same data, same decoding, multiple seeds. (1) The paper's method. (2) A GPT-5 rewrite that keeps the original length and style, then the same training. (3) RL with the style reward set to 0. (4) Direct answering. Report accuracy against latency.
-- **Validates the idea if**: arm 1 still beats arms 2 and 3 along that curve. The gain then comes from the sketch style itself.
-- **Refutes it if**: arm 1 does not beat arm 2 or arm 3. The "64% at no accuracy cost" then comes from distillation, budget, or the metric, not from the style.
+- **Validates the idea if**: after the controls, arm 1 no longer beats arm 2 or arm 3. The paper's gain really was mixed with distillation, training budget, or the metric, so separating the source was necessary.
+- **Refutes it if**: arm 1 still beats arms 2 and 3 after the controls. The confound is not there, and the gain comes from the sketch style itself. The previous version had these two outcomes swapped; this is the correction.
 
 ## Second group: existing methods pointed at claims this paper did not establish
 
