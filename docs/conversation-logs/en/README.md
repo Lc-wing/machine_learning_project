@@ -14,3 +14,4 @@ Results of every conversation with the Cursor agent, in chronological order. Chi
 | [08](2026-10-21-08-conversation-logging.md) | 2026-10-21 | Store every conversation's results in the repository as Markdown | [PR #4](https://github.com/Lc-wing/machine_learning_project/pull/4) awaiting merge |
 | [09](2026-10-21-09-bilingual-logs.md) | 2026-10-21 | Keep separate all-Chinese and all-English versions of the records | [PR #4](https://github.com/Lc-wing/machine_learning_project/pull/4) awaiting merge |
 | [10](2026-10-21-10-sketchthinker-future-directions.md) | 2026-10-21 | Three future directions that address the SketchThinker-R1 limitations | Done |
+| [11](2026-10-21-11-sketchthinker-existing-directions.md) | 2026-10-21 | Three more directions, prior work allowed | Done |

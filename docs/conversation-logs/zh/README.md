@@ -14,3 +14,4 @@
 | [08](2026-10-21-08-conversation-logging.md) | 2026-10-21 | 把所有对话结果以 Markdown 形式存入仓库 | [拉取请求 #4](https://github.com/Lc-wing/machine_learning_project/pull/4) 待合并 |
 | [09](2026-10-21-09-bilingual-logs.md) | 2026-10-21 | 对话记录分别生成全中文版和全英文版 | [拉取请求 #4](https://github.com/Lc-wing/machine_learning_project/pull/4) 待合并 |
 | [10](2026-10-21-10-sketchthinker-future-directions.md) | 2026-10-21 | 针对 SketchThinker-R1 局限的三个后续研究方向 | 已完成 |
+| [11](2026-10-21-11-sketchthinker-existing-directions.md) | 2026-10-21 | 再给三个方向（允许已有人做过） | 已完成 |
