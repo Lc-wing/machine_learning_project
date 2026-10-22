@@ -1,0 +1,157 @@
+{
+  "verification": "Font-width and PPTX geometry checks; fresh LibreOffice rendering unavailable",
+  "titles": [
+    {
+      "slide": 1,
+      "title": "SketchThinker-R1: Towards Efficient Sketch-Style Reasoning in Large Multimodal Models",
+      "font_pt": 20.0,
+      "text_width_pt": 849.91,
+      "available_width_pt": 861.12,
+      "fits_one_line": true
+    },
+    {
+      "slide": 2,
+      "title": "Long reasoning spends tokens on repeated explanation",
+      "font_pt": 30.0,
+      "text_width_pt": 796.78,
+      "available_width_pt": 875.52,
+      "fits_one_line": true
+    },
+    {
+      "slide": 3,
+      "title": "Three training stages turn sketches into a policy",
+      "font_pt": 30.0,
+      "text_width_pt": 690.17,
+      "available_width_pt": 875.52,
+      "fits_one_line": true
+    },
+    {
+      "slide": 4,
+      "title": "Cold start teaches the model what a sketch looks like",
+      "font_pt": 30.0,
+      "text_width_pt": 760.24,
+      "available_width_pt": 875.52,
+      "fits_one_line": true
+    },
+    {
+      "slide": 5,
+      "title": "SketchJudge rewards a textual style",
+      "font_pt": 30.0,
+      "text_width_pt": 516.88,
+      "available_width_pt": 875.52,
+      "fits_one_line": true
+    },
+    {
+      "slide": 6,
+      "title": "RL balances correctness, format, and thinking style",
+      "font_pt": 30.0,
+      "text_width_pt": 736.33,
+      "available_width_pt": 875.52,
+      "fits_one_line": true
+    },
+    {
+      "slide": 7,
+      "title": "Evaluate answer quality and reasoning cost separately",
+      "font_pt": 30.0,
+      "text_width_pt": 780.29,
+      "available_width_pt": 875.52,
+      "fits_one_line": true
+    },
+    {
+      "slide": 8,
+      "title": "At 7B, tokens fall sharply across all four benchmarks",
+      "font_pt": 30.0,
+      "text_width_pt": 756.93,
+      "available_width_pt": 875.52,
+      "fits_one_line": true
+    },
+    {
+      "slide": 9,
+      "title": "On MMMU, the 7B model improves both axes",
+      "font_pt": 30.0,
+      "text_width_pt": 641.77,
+      "available_width_pt": 875.52,
+      "fits_one_line": true
+    },
+    {
+      "slide": 10,
+      "title": "Cold start and RL contribute together",
+      "font_pt": 30.0,
+      "text_width_pt": 532.79,
+      "available_width_pt": 875.52,
+      "fits_one_line": true
+    },
+    {
+      "slide": 11,
+      "title": "The 3B result exposes an accuracy boundary",
+      "font_pt": 30.0,
+      "text_width_pt": 645.23,
+      "available_width_pt": 875.52,
+      "fits_one_line": true
+    },
+    {
+      "slide": 12,
+      "title": "Appendix results refine the efficiency claim",
+      "font_pt": 30.0,
+      "text_width_pt": 618.53,
+      "available_width_pt": 875.52,
+      "fits_one_line": true
+    },
+    {
+      "slide": 13,
+      "title": "Efficient answers leave evidence preservation unresolved",
+      "font_pt": 30.0,
+      "text_width_pt": 823.69,
+      "available_width_pt": 875.52,
+      "fits_one_line": true
+    },
+    {
+      "slide": 14,
+      "title": "Pitch: preserve the evidence behind an answer",
+      "font_pt": 30.0,
+      "text_width_pt": 668.56,
+      "available_width_pt": 875.52,
+      "fits_one_line": true
+    },
+    {
+      "slide": 15,
+      "title": "Compare evidence and style under shared data and compute",
+      "font_pt": 30.0,
+      "text_width_pt": 868.56,
+      "available_width_pt": 875.52,
+      "fits_one_line": true
+    },
+    {
+      "slide": 16,
+      "title": "A six-month plan with explicit success and null outcomes",
+      "font_pt": 30.0,
+      "text_width_pt": 822.38,
+      "available_width_pt": 875.52,
+      "fits_one_line": true
+    }
+  ],
+  "stage_titles": [
+    "1 \u00b7 Cold Start",
+    "2 \u00b7 SketchJudge",
+    "3 \u00b7 Sketch RL"
+  ],
+  "spoken_scripts_unchanged": true,
+  "word_counts_and_timing_unchanged": true,
+  "total_spoken_words": 1950,
+  "libreoffice": {
+    "command": [
+      "soffice",
+      "-env:UserInstallation=file:///tmp/presentation-step3-final-lo",
+      "--headless",
+      "--convert-to",
+      "pdf",
+      "--outdir",
+      "output",
+      "sketchthinker-presentation.pptx"
+    ],
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "Warning: failed to launch javaldx - java may not function correctly\n",
+    "fresh_pdf_verified": false
+  }
+}

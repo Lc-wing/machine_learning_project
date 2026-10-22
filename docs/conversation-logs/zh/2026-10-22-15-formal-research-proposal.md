@@ -3,7 +3,7 @@
 英文版：[English](../en/2026-10-22-15-formal-research-proposal.md)
 
 - 日期：2026-10-22
-- 状态：已在 `plan-evidence-preservation` 分支本地完成；没有提交、推送或创建拉取请求。
+- 状态：已通过 [PR #7](https://github.com/Lc-wing/machine_learning_project/pull/7) 合并到 `main`。
 - 请求：忠实扩展合并后的一页研究计划，保留标题，形成正式学术研究计划书；正文为二至四页，参考文献另起一页，包含指定章节、方法流程图、实验对照表和逐月时间表。阅读背景讨论与先前评审意见，核对文献，并编译两次。
 
 研究计划书已经完成：[PDF](../../research-proposal/sketch-sufficiency-proposal.pdf) 与 [LaTeX 源码](../../research-proposal/sketch-sufficiency-proposal.tex)。`pdfinfo` 显示文档共 **5 页**，参考文献从 **第 5 页**开始，因此正文为 **4 页**。

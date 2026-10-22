@@ -1,0 +1,38 @@
+[
+  {
+    "file": "paper-fig2-pipeline.png",
+    "page": 3,
+    "crop_pt": [
+      106,
+      82,
+      505,
+      170
+    ],
+    "method": "pdftoppm 240 dpi crop",
+    "slide": 3
+  },
+  {
+    "file": "paper-fig3-left-case.png",
+    "page": 8,
+    "crop_pt": [
+      108,
+      80,
+      304,
+      402
+    ],
+    "method": "pdftoppm 240 dpi crop",
+    "slide": "source asset only"
+  },
+  {
+    "file": "paper-fig3-circles.png",
+    "page": 8,
+    "crop_pt": [
+      165,
+      82,
+      250,
+      146
+    ],
+    "method": "pdftoppm 240 dpi crop",
+    "slide": 2
+  }
+]

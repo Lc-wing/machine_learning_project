@@ -3,7 +3,7 @@
 Chinese version: [中文](../zh/2026-10-22-15-formal-research-proposal.md)
 
 - Date: 2026-10-22
-- Status: completed locally on `plan-evidence-preservation`; no commit or push; no PR created.
+- Status: merged into `main` via [PR #7](https://github.com/Lc-wing/machine_learning_project/pull/7).
 - Request: expand the merged one-page plan faithfully into a formal academic LaTeX proposal, preserving its title, with 2–4 body pages, separate references, exact required sections, a method figure, experimental table, and monthly timeline. Read the background discussions and prior review; verify references and build the PDF twice.
 
 The proposal is complete: [PDF](../../research-proposal/sketch-sufficiency-proposal.pdf) and [LaTeX source](../../research-proposal/sketch-sufficiency-proposal.tex). `pdfinfo` reports **5 pages total**. References starts on **page 5**, so the body is **4 pages**.

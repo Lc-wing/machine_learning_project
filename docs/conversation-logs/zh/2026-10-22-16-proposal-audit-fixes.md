@@ -3,7 +3,7 @@
 英文版：[English](../en/2026-10-22-16-proposal-audit-fixes.md)
 
 - 日期：2026-10-22
-- 状态：已在 `proposal-fixes` 分支本地完成；未提交或推送。
+- 状态：已通过 [PR #8](https://github.com/Lc-wing/machine_learning_project/pull/8) 合并到 `main`。
 - 请求：落实审计问题 1–12、14 及 M1–M5，可选落实 13；保留预印本作者，精简过度保留措辞，正文不超过四页，重新编译并添加双语记录。
 
 已更新[源文件](../../research-proposal/sketch-sufficiency-proposal.tex)和[文档](../../research-proposal/sketch-sufficiency-proposal.pdf)，以 `/workspace/codex-audit-recheck.md` 为修订清单，采用 researchwrite 技能的修订检查方法，并同步更新事实、证据和验证笔记。
