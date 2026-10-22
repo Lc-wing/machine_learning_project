@@ -3,7 +3,7 @@
 Chinese version: [中文](../zh/2026-10-22-17-iclr-venue-fix.md)
 
 - Date: 2026-10-22
-- Status: branch [`iclr-venue-fix`](https://github.com/Lc-wing/machine_learning_project/tree/iclr-venue-fix); pull request open, not merged.
+- Status: branch [`iclr-venue-fix`](https://github.com/Lc-wing/machine_learning_project/tree/iclr-venue-fix); [PR #9](https://github.com/Lc-wing/machine_learning_project/pull/9) open, not merged.
 - Request: SketchThinker-R1 (Zhang, Zhou, Zheng; arXiv:2601.02825) was published at ICLR 2026 as a poster ([OpenReview](https://openreview.net/forum?id=ZSMDuKtYbt), [proceedings PDF](https://proceedings.iclr.cc/paper_files/paper/2026/file/a1f0c0cd6caaa4863af5f12608edf63e-Paper-Conference.pdf)). Earlier work treated it as arXiv-only; fix every instance, rebuild outputs, and check whether any number used differs.
 
 Result: every arXiv-only or preprint framing of the paper now says ICLR 2026. The proceedings version matches arXiv v1 in every number used, so no number changed.

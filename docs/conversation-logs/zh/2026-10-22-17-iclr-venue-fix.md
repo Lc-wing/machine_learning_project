@@ -3,7 +3,7 @@
 英文版：[English](../en/2026-10-22-17-iclr-venue-fix.md)
 
 - 日期：2026-10-22
-- 状态：分支 [`iclr-venue-fix`](https://github.com/Lc-wing/machine_learning_project/tree/iclr-venue-fix)；已创建拉取请求，未合并。
+- 状态：分支 [`iclr-venue-fix`](https://github.com/Lc-wing/machine_learning_project/tree/iclr-venue-fix)；已创建 [PR #9](https://github.com/Lc-wing/machine_learning_project/pull/9)，未合并。
 - 请求：SketchThinker-R1（Zhang、Zhou、Zheng；arXiv:2601.02825）已作为海报论文发表于 ICLR 2026（[OpenReview](https://openreview.net/forum?id=ZSMDuKtYbt)、[会议论文集 PDF](https://proceedings.iclr.cc/paper_files/paper/2026/file/a1f0c0cd6caaa4863af5f12608edf63e-Paper-Conference.pdf)）。此前误作仅有 arXiv 版本；需全部更正、重新生成输出，并核对所用数字是否不同。
 
 结论：所有把该论文写成仅 arXiv 或预印本的地方均已改为 ICLR 2026。会议版与 arXiv 第一版所用数字完全一致，未改动任何数字。
