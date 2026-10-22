@@ -18,3 +18,4 @@ Results of every conversation with the Cursor agent, in chronological order. Chi
 | [12](2026-10-21-12-direction-questions-experiments.md) | 2026-10-21 | A research question and a validating experiment for every direction | Done; direction 3's criterion corrected |
 | [13](2026-10-21-13-answer-check.md) | 2026-10-21 | Check whether the previous answer matched the question | Done |
 | [14](2026-10-21-14-research-plan.md) | 2026-10-21 | One-page research plan: image-conditioned sufficiency | Done; see `docs/research-plan/sketch-sufficiency.pdf` |
+| [15](2026-10-22-15-formal-research-proposal.md) | 2026-10-22 | Formal proposal: preserving visual evidence in compressed multimodal reasoning | Done locally; 4 body pages + references; no commit/push |
