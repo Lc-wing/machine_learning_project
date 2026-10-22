@@ -1,0 +1,2 @@
+# Scope
+Hybrid expansion of the merged one-page plan into an English formal academic proposal for ML researchers. Preserve the title and central evidence-preservation question. Deliver an 11pt Letter LaTeX source and PDF with 2–4 body pages, fresh-page references, a TikZ pipeline and two tables. No experiments have been run. No commit or push. Repository bilingual logging applies; the user's no-commit instruction overrides the logging rule's commit step.
