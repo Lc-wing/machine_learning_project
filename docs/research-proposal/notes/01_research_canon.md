@@ -26,5 +26,18 @@ All new sample sizes, thresholds and training choices in the proposal are planne
 ## Audit revision (2026-10-22)
 - Sufficiency maximizes over reviewer-validated derivations, with graph-indexed coverage and a binary validity check bound to the returned answer. Empty categories have coverage 1; category summaries exclude them and macro-average.
 - RQ1 measures semantic omission of originally correct necessary units within retained derivations, separately from grounding errors and valid proof changes.
-- Principal evidence and style rewards are binary with coefficient 0.1; rewriting controls share the exact zero-component objective.
+- Principal sufficiency, style, and stated-step correctness rewards are binary with coefficient 0.1. The zero-auxiliary arm retains 0.5 accuracy and 0.4 format without renormalization. All four share compressed cold-start data and initialization.
 - SketchRL-1K contains MathVista questions (SketchThinker-R1 v1, §3); released-checkpoint MathVista comparisons require an item-level overlap audit.
+
+## Current protocol (2026-10-23)
+
+- Source authority: revised HTML plan, revised English paper analysis, and skill-review notes. The analysis supplies numerical protocol detail omitted from the compact HTML.
+- Render 3,000 geometry/bar-chart problems; family split 1,600 training / 400 development / 1,000 test before traces or variants.
+- Two annotators audit 300 test problems across all four arms and three seeds, retaining wrong answers and valid alternative derivations.
+- Qwen2.5-VL-7B-Instruct policy; judges initialized from Qwen2.5-VL-3B. Sufficiency and stated-step judges share image/question/trace/returned-answer inputs; style sees trace alone; gold answers withheld from judge scoring.
+- Judge gate: development false acceptance ≤10% and sufficient recall ≥70%, before RL.
+- One budget-conditioned policy per arm/seed; target 64/128/256 tokens; achieved means within 5%; measured training compute includes rollouts and judge scoring; fixed-rollout sensitivity.
+- Primary success near 128 achieved tokens: sufficiency versus style ≥3 accuracy points and ≥5 human-sufficiency points, both paired 95% intervals above zero. Cluster by original problem family; report individual seed effects and range separately.
+- Independently checked 200 answer-changing and 100 nuisance pairs. Separate image-access and omission-negative-training ablations.
+- Two 80GB accelerators; 12 principal runs ×25 accelerator-hours +100 shared hours =400 total. All occupied devices count; reduce data/steps equally after throughput pilot, retaining seeds and primary contrast.
+- Paper labels use MathVision; MATH-Vision remains the dataset's formal name. VisualPRM and Let's Verify Step by Step position correctness supervision; omission-sensitive completeness is the discriminating target.
