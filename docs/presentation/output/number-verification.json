@@ -1,0 +1,47 @@
+{
+  "title": "SketchThinker-R1: Towards Efficient Sketch-Style Reasoning in Large Multimodal Models",
+  "authors": [
+    "Ruiyang Zhang",
+    "Dongzhan Zhou",
+    "Zhedong Zheng"
+  ],
+  "venue": "ICLR 2026 (poster); OpenReview ZSMDuKtYbt; arXiv:2601.02825 v1 used as extraction source, text and numbers identical to the proceedings version",
+  "reward_weights": {
+    "accuracy": 0.5,
+    "format": 0.4,
+    "thinking_style": 0.1
+  },
+  "judge_input": "Thinking text only; neither image nor question (Section 2.2 prompt)",
+  "math_vision_3b": {
+    "accuracy_pct": [
+      26.9,
+      25.3
+    ],
+    "reasoning_tokens": [
+      151.2,
+      72.7
+    ]
+  },
+  "math_vision_7b": {
+    "accuracy_pct": [
+      31.0,
+      31.7
+    ]
+  },
+  "table_rows_verified": 64,
+  "additional_exact_row_checks": [
+    "p7_stage_cold",
+    "p7_stage_rl",
+    "p7_stage_both",
+    "p7_judge_no_sft",
+    "p16_dynamic",
+    "p16_staged",
+    "p17_data_5k",
+    "p18_interpretability",
+    "p20_training_hours"
+  ],
+  "source": "paper/2601.02825.txt, generated with pdftotext -layout",
+  "main_batch_size": 128,
+  "appendix_batch_size": 512,
+  "policy": "Paper values are extracted/checked; derived arithmetic and proposed design values are labeled separately."
+}

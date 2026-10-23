@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="864pt" height="266.4pt" viewBox="0 0 864 266.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-22T14:58:04.911476</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 266.4 
+L 864 266.4 
+L 864 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 119.16 212.148 
+L 317.25 212.148 
+Q 320.04 212.148 320.04 209.376 
+L 320.04 65.232 
+Q 320.04 62.46 317.25 62.46 
+L 119.16 62.46 
+Q 116.37 62.46 116.37 65.232 
+L 116.37 209.376 
+Q 116.37 212.148 119.16 212.148 
+z
+" clip-path="url(#p4caf922145)" style="fill: #eef4f6"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 322.036321 137.304 
+Q 329.523275 137.304 335.892195 137.304 
+" clip-path="url(#p4caf922145)" style="fill: none; stroke: #087f8c; stroke-linecap: round"/>
+    <path d="M 327.892195 133.304 
+L 335.892195 137.304 
+L 327.892195 141.304 
+z
+" clip-path="url(#p4caf922145)" style="fill: #087f8c; stroke: #087f8c; stroke-linecap: round"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 342.36 212.148 
+L 540.45 212.148 
+Q 543.24 212.148 543.24 209.376 
+L 543.24 65.232 
+Q 543.24 62.46 540.45 62.46 
+L 342.36 62.46 
+Q 339.57 62.46 339.57 65.232 
+L 339.57 209.376 
+Q 339.57 212.148 342.36 212.148 
+z
+" clip-path="url(#p4caf922145)" style="fill: #eef4f6"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 545.236321 137.304 
+Q 552.723275 137.304 559.092195 137.304 
+" clip-path="url(#p4caf922145)" style="fill: none; stroke: #087f8c; stroke-linecap: round"/>
+    <path d="M 551.092195 133.304 
+L 559.092195 137.304 
+L 551.092195 141.304 
+z
+" clip-path="url(#p4caf922145)" style="fill: #087f8c; stroke: #087f8c; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 565.56 212.148 
+L 763.65 212.148 
+Q 766.44 212.148 766.44 209.376 
+L 766.44 65.232 
+Q 766.44 62.46 763.65 62.46 
+L 565.56 62.46 
+Q 562.77 62.46 562.77 65.232 
+L 562.77 209.376 
+Q 562.77 212.148 565.56 212.148 
+z
+" clip-path="url(#p4caf922145)" style="fill: #eef4f6"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 20px; font-family: 'Liberation Sans'; fill: #203546" transform="translate(129.204 106.23957)">Sketch-Mode</text>
+    <text style="font-weight: 700; font-size: 20px; font-family: 'Liberation Sans'; fill: #203546" transform="translate(129.204 128.007148)">Cold Start</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 16px; font-family: 'Liberation Sans'; fill: #203546" transform="translate(129.204 172.858)">Long traces → GPT-5 sketches</text>
+    <text style="font-size: 16px; font-family: 'Liberation Sans'; fill: #203546" transform="translate(129.204 196.883)">Supervised multimodal policy</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 20px; font-family: 'Liberation Sans'; fill: #203546" transform="translate(352.404 106.23957)">SketchJudge</text>
+    <text style="font-weight: 700; font-size: 20px; font-family: 'Liberation Sans'; fill: #203546" transform="translate(352.404 128.035664)">Reward Model</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 16px; font-family: 'Liberation Sans'; fill: #203546" transform="translate(352.404 172.858)">Long = 0; sketch = 1</text>
+    <text style="font-size: 16px; font-family: 'Liberation Sans'; fill: #203546" transform="translate(352.404 196.883)">Text-only style classifier</text>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 20px; font-family: 'Liberation Sans'; fill: #203546" transform="translate(575.604 106.23957)">Sketch-Thinking</text>
+    <text style="font-weight: 700; font-size: 20px; font-family: 'Liberation Sans'; fill: #203546" transform="translate(575.604 128.035664)">Reinforcement Learning</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 16px; font-family: 'Liberation Sans'; fill: #203546" transform="translate(575.604 172.858)">GRPO on new questions</text>
+    <text style="font-size: 16px; font-family: 'Liberation Sans'; fill: #203546" transform="translate(575.604 196.883)">Accuracy + format + style</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p4caf922145">
+   <rect x="108" y="31.968" width="669.6" height="205.128"/>
+  </clipPath>
+ </defs>
+</svg>

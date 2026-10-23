@@ -1,0 +1,130 @@
+[
+  {
+    "title": "SketchThinker-R1: Towards Efficient Sketch-Style Reasoning in Large Multimodal Models",
+    "part": "I",
+    "words": 80,
+    "start": "00:00",
+    "end": "00:37",
+    "seconds": 36.92307692307693
+  },
+  {
+    "title": "Long reasoning spends tokens on repeated explanation",
+    "part": "I",
+    "words": 110,
+    "start": "00:37",
+    "end": "01:28",
+    "seconds": 50.76923076923077
+  },
+  {
+    "title": "Three training stages turn sketches into a policy",
+    "part": "I",
+    "words": 115,
+    "start": "01:28",
+    "end": "02:21",
+    "seconds": 53.07692307692307
+  },
+  {
+    "title": "Cold start teaches the model what a sketch looks like",
+    "part": "I",
+    "words": 125,
+    "start": "02:21",
+    "end": "03:18",
+    "seconds": 57.69230769230769
+  },
+  {
+    "title": "SketchJudge rewards a textual style",
+    "part": "I",
+    "words": 125,
+    "start": "03:18",
+    "end": "04:16",
+    "seconds": 57.69230769230769
+  },
+  {
+    "title": "RL balances correctness, format, and thinking style",
+    "part": "I",
+    "words": 140,
+    "start": "04:16",
+    "end": "05:21",
+    "seconds": 64.61538461538461
+  },
+  {
+    "title": "Evaluate answer quality and reasoning cost separately",
+    "part": "I",
+    "words": 115,
+    "start": "05:21",
+    "end": "06:14",
+    "seconds": 53.07692307692307
+  },
+  {
+    "title": "At 7B, tokens fall sharply across all four benchmarks",
+    "part": "I",
+    "words": 135,
+    "start": "06:14",
+    "end": "07:16",
+    "seconds": 62.307692307692314
+  },
+  {
+    "title": "On MMMU, the 7B model improves both axes",
+    "part": "I",
+    "words": 115,
+    "start": "07:16",
+    "end": "08:09",
+    "seconds": 53.07692307692307
+  },
+  {
+    "title": "Cold start and RL contribute together",
+    "part": "I",
+    "words": 125,
+    "start": "08:09",
+    "end": "09:07",
+    "seconds": 57.69230769230769
+  },
+  {
+    "title": "The 3B result exposes an accuracy boundary",
+    "part": "I",
+    "words": 125,
+    "start": "09:07",
+    "end": "10:05",
+    "seconds": 57.69230769230769
+  },
+  {
+    "title": "Appendix results refine the efficiency claim",
+    "part": "I",
+    "words": 135,
+    "start": "10:05",
+    "end": "11:07",
+    "seconds": 62.307692307692314
+  },
+  {
+    "title": "Efficient answers leave evidence preservation unresolved",
+    "part": "I",
+    "words": 115,
+    "start": "11:07",
+    "end": "12:00",
+    "seconds": 53.07692307692307
+  },
+  {
+    "title": "Pitch: preserve the evidence behind an answer",
+    "part": "II",
+    "words": 130,
+    "start": "12:00",
+    "end": "13:00",
+    "seconds": 60.0
+  },
+  {
+    "title": "Compare evidence and style under shared data and compute",
+    "part": "II",
+    "words": 130,
+    "start": "13:00",
+    "end": "14:00",
+    "seconds": 60.0
+  },
+  {
+    "title": "A six-month plan with explicit success and null outcomes",
+    "part": "II",
+    "words": 130,
+    "start": "14:00",
+    "end": "15:00",
+    "seconds": 60.0
+  }
+]

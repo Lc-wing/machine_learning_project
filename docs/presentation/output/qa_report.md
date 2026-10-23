@@ -1,0 +1,14 @@
+# Build QA
+
+- Reused the existing 16-slide builder, narrative, scripts, and paper assets.
+- Step 3 is limited to layout: slide 3 uses single-line stage titles, its body text starts higher and has taller text boxes within the existing stage boxes, and its caption reads “Top: redrawn pipeline · Bottom: original Figure 2”. Slide 14 uses “Pitch: preserve the evidence behind an answer”, synchronized with talk-content.json. The full cover title uses 20 pt to fit one line.
+- All 16 spoken scripts, per-slide word counts, and timing are unchanged from the pre-edit snapshot. Part I remains 1,560 words (12:00); Part II is 390 words (3:00), at 130 words per minute. Markdown and DOCX heading 14 follow the updated slide title; spoken text is unchanged.
+- Actual Liberation Sans font-width measurements pass for all 16 slide titles and the three stage titles. Slide 3 body text boxes clear the titles and end within their stage boxes. See layout-check.json. These checks do not replace a rendered inspection.
+- PowerPoint reopens with 16 slides in 16:9, all shapes within the slide canvas, and every slide's speaker notes exactly equal to its script in talk-content.json. All scripts also match the Markdown and DOCX exports.
+- Cover verified against paper/2601.02825.txt and PDF title metadata: exact title; Ruiyang Zhang, Dongzhan Zhou, Zhedong Zheng; ICLR 2026 (poster; OpenReview ZSMDuKtYbt). Group placeholder table is marked EDIT and has Name | Contribution | % headers.
+- Paper Section 2.3, Equation 5 verifies reward weights: accuracy 0.5, format 0.4, thinking style 0.1. Section 2.2's judge prompt takes thinking text only, with neither image nor question.
+- Table 2 verifies 3B MATH-Vision accuracy 26.9 → 25.3 and reasoning tokens 151.2 → 72.7; Table 1 verifies 7B MATH-Vision accuracy 31.0 → 31.7. Comparisons use Vanilla-R1 → SketchThinker-R1.
+- Original paper figure crops and redrawn result charts were inspected. Chart legend and clustered labels were repositioned to avoid obscuring the plotted evidence.
+- Final audit: **0 high, 1 medium, 44 low** findings; see pptx_audit.md. The medium finding flags the intentionally small, simple circles illustration on slide 2; its labels are legible in the inspected crop. Low findings are near-alignment heuristics.
+- Fresh LibreOffice rendering remains unavailable: `soffice --headless --convert-to pdf --outdir output sketchthinker-presentation.pptx` exits with status 1 before conversion, including with writable temporary profile/cache and direct soffice.bin attempts. The final attempt reports “failed to launch javaldx”. The PDF already in output/ predates these Step 3 edits and was not refreshed or used as evidence of the updated layout. Rendered visual inspection of the updated deck remains outstanding; see layout-check.json for the command, exit status, and stderr.
+- No git commit or push was performed.

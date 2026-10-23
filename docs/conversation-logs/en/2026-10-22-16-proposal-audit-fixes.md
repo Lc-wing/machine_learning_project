@@ -3,7 +3,7 @@
 Chinese version: [中文](../zh/2026-10-22-16-proposal-audit-fixes.md)
 
 - Date: 2026-10-22
-- Status: completed locally on `proposal-fixes`; no commit or push.
+- Status: merged into `main` via [PR #8](https://github.com/Lc-wing/machine_learning_project/pull/8).
 - Request: apply audit findings 1–12 and 14 plus M1–M5, optionally 13; preserve preprint authors, tighten hedging, keep the body within four pages, rebuild with pdflatex, and add bilingual session records.
 
 Updated [LaTeX](../../research-proposal/sketch-sufficiency-proposal.tex) and [PDF](../../research-proposal/sketch-sufficiency-proposal.pdf), using `/workspace/codex-audit-recheck.md` as the revision brief and researchwrite revision guidance. Supporting canon, evidence, and validation notes were refreshed.
