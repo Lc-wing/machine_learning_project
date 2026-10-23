@@ -24,114 +24,125 @@
 \end{center}
 \vspace{-8pt}
 \section*{Abstract}
-Short multimodal explanations must preserve the visual evidence supporting their answers. We propose image-conditioned sufficiency supervision for concise traces retaining necessary premises and valid deductions. The study uses one 7B answering model, annotated diagrams, human-checked image pairs, and a separate judge of explanatory support. Evidence and style rewards will be compared on identical rewritten data at matched compute and achieved reasoning-token budgets. Original-trace and length-preserving rewrite controls test rewriting effects. We hypothesize improved premise retention and accuracy under compression.
+Concise multimodal reasoning can omit a visual premise while stating only correct steps. We will test an image-aware sufficiency reward that detects this missing support. Four reward arms will share compressed cold-start data, initialization, budget conditioning, and measured policy-training compute: sufficiency, style, stated-step correctness, and zero auxiliary reward. Using Qwen2.5-VL-7B-Instruct, we will study 3,000 geometry and bar-chart problems with independent human evaluation and checked image interventions. Near 128 achieved reasoning tokens, the primary target is a 3-point accuracy gain and a 5-point human-sufficiency gain over style supervision. A judge gate and throughput pilot precede training within a 400 accelerator-hour cap.
 
 \section{Introduction}
-Chain-of-thought prompting makes intermediate reasoning explicit, while reinforcement learning can improve reasoning performance \cite{wei,deepseek}. In visual mathematics, a short solution must retain facts read from diagrams alongside algebraic deductions. Removing ``the marked angle is $40^\circ$'' can leave an otherwise plausible calculation unsupported. Whether compression preferentially removes these visual premises remains an empirical question.
+Compression saves generated text, but a useful explanation must retain the facts supporting its answer. In visual mathematics, those facts include readings and relations available only in a diagram. A trace can contain valid arithmetic yet omit the visual premises that make the calculation applicable. Chain-of-thought prompting and reinforcement learning motivate studying the intermediate reasoning as well as final correctness \cite{wei,deepseek}.
 
-SketchThinker-R1 \cite{sketch} learns concise traces using a style judge that sees neither the image nor the question. Consequently, its style supervision does not establish preservation of answer-critical visual evidence. Its Table~2 reports MATH-Vision accuracy of 25.3\% for SketchThinker-R1-3B versus 26.9\% for Vanilla-R1-3B, a decrease of 1.6 percentage points. This comparison motivates testing accuracy across compression budgets.
+SketchThinker-R1 \cite{sketch} trains concise multimodal reasoning with a text-only style judge. Its answering policy sees images and questions; SketchJudge sees neither. Appendix~H evaluates key-step preservation in cold-start sketches: Table~14 classifies 19,182 as preserving key steps and 818 as missing them. The remaining gap concerns omission-sensitive supervision and independent sufficiency evaluation of learned-policy outputs, including wrong answers.
 
-We ask whether evidence supervision improves the accuracy--length tradeoff beyond style supervision: (RQ1) are necessary visual premises omitted more often than necessary nonvisual steps? (RQ2) does sufficiency supervision improve accuracy and premise retention at matched average reasoning-token budgets, including harder items? (RQ3) does any advantage persist when rewritten data and training compute are controlled? The contributions are a sufficiency criterion, an annotated intervention set with a validated judge, and a controlled comparison of correctness and explanation sufficiency.
+The paper's 7B results show large token savings, while its 3B MathVision comparison falls from 26.9\% to 25.3\% accuracy (Table~2). This variation motivates measuring accuracy and explanatory support separately. We ask: (RQ1) which necessary visual premises disappear relative to nonvisual units, allowing alternative derivations? (RQ2) does omission-sensitive supervision improve accuracy and sufficiency beyond style and stated-step correctness at matched lengths and compute? (RQ3) do gains persist on image interventions and under separate image-access and omission-training ablations?
 
 \section{Related Work}
-\textbf{Concise reasoning and budget control.} Sketch-of-Thought uses constrained reasoning paradigms to shorten outputs \cite{sot}; s1 controls test-time reasoning through budget forcing \cite{sone}. These motivate our budget sweeps. SketchThinker-R1 combines cold-start rewriting, style-judge training, and reinforcement learning \cite{sketch}. Its default reward is $0.5R_{\rm accuracy}+0.4R_{\rm format}+0.1R_{\rm style}$, rather than style alone. A fixed style-reward coefficient does not impose a common token budget: trace lengths can vary across problems. The paper also examines reward schedules. Our controls test the contribution of cold-start rewriting.
+\textbf{Compression and allocation.} Sketch-of-Thought compresses reasoning through constrained paradigms \cite{sot}; s1 controls test-time computation through budget forcing \cite{sone}. SketchThinker-R1 combines rewriting, cold start, and reinforcement learning, with default reward weights of 0.5 accuracy, 0.4 format, and 0.1 style \cite{sketch}. Its stage, judge, schedule, and long-trace controls establish useful comparisons; a shared-initialization reward contrast tests the incremental value of the auxiliary signal.
 
-\textbf{Verification and visual dependence.} Process supervision evaluates intermediate reasoning rather than only final answers \cite{lightman}. Evidence that explanations can misrepresent a model's reasons motivates separating explanatory support from causal faithfulness \cite{turpin}. MathVerse varies the distribution of information between question text and diagrams \cite{mathverse}; MathVista and MATH-Vision assess visual mathematical reasoning \cite{mathvista,mathvision}. We evaluate explicit visual premises during compression using checked labels and controlled edits. Qwen2.5-VL supplies the multimodal backbone \cite{qwen}, and Group Relative Policy Optimization (GRPO), introduced in DeepSeekMath \cite{grpo}, supplies the policy-training procedure.
+\textbf{Correct steps and complete support.} Process supervision checks intermediate steps \cite{lightman}; VisualPRM extends process reward modeling to multimodal reasoning \cite{visualprm}. We distinguish correctness of stated steps from whether the trace supplies all premises needed for its returned answer. MathVerse varies diagram/text information \cite{mathverse}; MathVista and MATH-Vision provide visual-mathematics transfer settings \cite{mathvista,mathvision}. Qwen2.5-VL supplies the policy and judge backbones \cite{qwen}, with GRPO for policy optimization \cite{grpo}. Explanatory sufficiency is observable support; causal faithfulness requires a different test \cite{turpin}.
 
+\newpage
 \section{Proposed Methodology}
-\textbf{Task and operational criterion.} Given image $I$ and question $q$, policy $\pi_\theta$ produces trace $z$ and answer $a$. The trace must conclude with $a$, supported by its derivation. The answer field contains only the normalized final answer; all preceding explanation counts toward reasoning length $L(z)$, with target budget $B$. Reviewers construct a nonempty set $\mathcal{G}(I,q)$ of validated admissible derivation graphs with visual premises, textual premises, and deductions. Visual nodes carry region references or measurable relations. A unit is necessary relative to a derivation if its removal breaks support for the answer.
+\textbf{Explicit sufficiency.} Given image $I$ and question $q$, policy $\pi_\theta$ returns trace $z$ and answer $a$. All explanation preceding the normalized answer counts toward reasoning length $L(z)$. Reviewers annotate a set $\mathcal{G}(I,q)$ of admissible derivation graphs, accepting valid alternative proofs. Nodes represent visual premises, question facts, and deductions; visual nodes carry region references or measurable relations. A unit is necessary relative to a derivation when removing it breaks support for the answer.
 
-For each $G\in\mathcal{G}(I,q)$, $P_{V,G}(z)$ and $P_{N,G}(z)$ are the fractions of required visual premises and nonvisual units explicitly stated and correct. Units are atomic semantic propositions under a fixed annotation rubric. Empty categories have coverage 1; category-specific summaries exclude them, report their counts, and macro-average over remaining problems. Let $D(z)\in\{0,1\}$ indicate a valid derivation of the returned answer from stated premises, question facts, and declared elementary rules; $D_G(z)$ applies this check to $G$. Define
+For graph $G$, let $P_{V,G}(z)$ and $P_{N,G}(z)$ be fractions of required visual premises and nonvisual units explicitly stated and correct. Let $D_G(z)$ indicate valid deductions supporting the returned answer from these premises, question facts, and declared elementary rules. Define
 \begin{equation}
- S(z;I,q,\mathcal{G})=\max_{G\in\mathcal{G}(I,q)}
- \ind[P_{V,G}(z)=1]\,\ind[P_{N,G}(z)=1]\,D_G(z).
- \label{eq:suff}
+S(z;I,q,\mathcal{G})=\max_{G\in\mathcal{G}(I,q)}
+\ind[P_{V,G}(z)=1]\,\ind[P_{N,G}(z)=1]D_G(z).
+\label{eq:suff}
 \end{equation}
-The image verifies stated facts; it cannot supply missing premises. Thus ``$x=180-40-60=80$'' fails Eq.~\ref{eq:suff} if the angle readings occur only in the image. Redundant statements can be deleted when a complete admissible derivation remains.
+The image checks stated facts without filling omissions. Thus a triangle calculation silently importing image-only angle readings is incomplete. Redundant deletions pass when a complete valid derivation remains. Empty unit categories have coverage one; category summaries exclude them and report their counts. Newly identified valid proofs enter blinded adjudication under the same rubric.
 
 \begin{figure}[ht]
 \centering
 \begin{tikzpicture}[font=\small,>=Latex,
- box/.style={draw=black!65,rounded corners=2pt,align=center,text width=4cm,minimum height=1.05cm,inner sep=5pt},
+ box/.style={draw=black!65,rounded corners=2pt,align=center,text width=3.9cm,minimum height=.85cm,inner sep=4pt},
  flow/.style={->,thick,draw=black!70}]
-\node[box,fill=black!4] (data) {Diagram, question,\\checked derivation};
-\node[box,fill=blue!7,right=0.55cm of data] (traces) {Shared rewritten traces\\and deletion negatives};
-\node[box,fill=blue!7,right=0.55cm of traces] (judge) {Image-conditioned judge\\premises + deductions};
-\node[box,fill=black!4,below=0.65cm of judge] (rl) {7B policy + GRPO\\accuracy, format, evidence};
-\node[box,fill=black!4,left=0.55cm of rl] (eval) {Budget-matched tests\\accuracy, retention, pairs};
-\node[box,fill=black!4,left=0.55cm of eval] (human) {Held-out human audit\\of answers and traces};
-\draw[flow] (data)--(traces);
-\draw[flow] (traces)--(judge);
-\draw[flow] (judge)--(rl);
-\draw[flow] (rl)--(eval);
-\draw[flow] (eval)--(human);
+\node[box,fill=black!4] (data) {Family split first\\checked admissible proofs};
+\node[box,fill=blue!7,right=.45cm of data] (judge) {Judge diagnostics\\omissions + false readings};
+\node[box,fill=blue!7,right=.45cm of judge] (gate) {Development gate\\then shared cold start};
+\node[box,fill=black!4,below=.5cm of gate] (rl) {Four reward arms\\one policy per arm/seed};
+\node[box,fill=black!4,left=.45cm of rl] (eval) {Matched length + compute\\accuracy, support, pairs};
+\node[box,fill=black!4,left=.45cm of eval] (human) {Independent human audit\\all primary arms/seeds};
+\draw[flow] (data)--(judge);\draw[flow] (judge)--(gate);\draw[flow] (gate)--(rl);
+\draw[flow] (rl)--(eval);\draw[flow] (eval)--(human);
 \end{tikzpicture}
-\caption{Proposed pipeline. Training annotations supervise the judge, development annotations calibrate it, and held-out human annotations evaluate the judge and generated traces.}
+\caption{Proposed study. Training annotations supervise judges; development data calibrate and select settings; held-out human labels evaluate generated traces.}
 \label{fig:pipeline}
 \end{figure}
 
-\textbf{Judge architecture and training.} A separate Qwen2.5-VL-3B judge will receive $I,q,z$ and predict structured premise-grounding and deduction-validity labels, followed by a binary sufficiency label. Supervised token cross-entropy trains both outputs. The score $s_\phi(I,q,z)$ is the normalized probability of the sufficient label over the two allowed label tokens, calibrated on development data. Reference graphs supply training labels; inference uses $I,q,z$ alone. Training uses supported sketches, single-premise deletions, incorrect readings, invalid deductions, and redundant-step deletions, matched in length and format. Negatives include correct answers with missing evidence.
+\textbf{Judge and comparator.} Initialize judges from Qwen2.5-VL-3B. Sufficiency and stated-step correctness judges receive identical $I,q,z,a$ inputs, without the gold answer. The correctness judge checks stated propositions and deductions; sufficiency additionally requires complete support. The style judge receives trace text alone. Training contrasts complete sketches, correct-answer premise deletions, false readings, invalid deductions, redundant deletions, and alternative proofs, matching length and format. Structured grounding/deduction labels and binary judgments use supervised cross-entropy. Development calibration selects a binary threshold requiring false acceptance $\leq10\%$ and sufficient-trace recall $\geq70\%$. Failure returns the study to labeling and diagnostics before RL.
 
-Two annotators independently label the audited subset; grounding and deduction agreement are reported before adjudication. Development data set threshold $\tau$ for at most 10\% false acceptance and at least 70\% sufficient-trace recall. Missing either target triggers more labeling before policy training. Held-out precision, recall, calibration error, and false acceptance assess transfer.
-
-\textbf{Compression and policy optimization.} All principal reward arms will start from the same Qwen2.5-VL-7B-Instruct checkpoint, fine-tuned on identical compressed traces from one frozen rewriter. The policy learns to generate sketches directly. Figure~\ref{fig:pipeline} summarizes the workflow; Eq.~\ref{eq:reward} defines the reward:
+\textbf{Common policy objective.} Four arms share Qwen2.5-VL-7B-Instruct compressed cold-start weights and data. With $A_\phi$ denoting each binary auxiliary judgment, use
 \begin{equation}
- R=0.5\ind[a=a^*]+0.4F(z,a)+0.1E_\phi(I,q,z)-\lambda\max(0,L(z)/B-1),
- \label{eq:reward}
+R=0.5\ind[a=a^*]+0.4F(z,a)+0.1A_\phi-\lambda\max(0,L(z)/B-1).
+\label{eq:reward}
 \end{equation}
-where $a^*$ is the checked answer, $F$ checks response format, and $E_\phi=\ind[s_\phi\geq\tau]$. GRPO uses four rollouts per group to save compute versus the five in SketchThinker-R1 \cite{sketch}, advantages $A_i=(r_i-\bar r)/\max(\sigma_r,\epsilon)$ with fixed $\epsilon>0$ and $A_i=0$ for equal-reward groups, and a KL penalty to the cold-start policy. The style arm replaces $E_\phi$ with the source's binary text-only judgment $R_{\rm style}\in\{0,1\}$; both auxiliary rewards have support $\{0,1\}$ and coefficient 0.1. A probability-valued evidence reward is a separate ablation; a zero-component arm sets $E_\phi=0$. All use the same length penalty and development-only coefficient search. Budgets $B\in\{64,128,256,512\}$ set targets; evaluation matches achieved lengths. The judge is used during training only; deployment requires the answering model alone.
+The zero-auxiliary arm sets $A_\phi=0$ without renormalization. GRPO uses shared rollout settings and a KL anchor to the cold-start policy. Common budget conditioning targets $B\in\{64,128,256\}$ within each trained policy. The pilot fixes length-penalty search and throughput settings before the primary runs; deployment uses the policy alone.
 
+\newpage
 \section{Experimental Plan}
-\textbf{Data and leakage controls.} We plan 2,400 programmatically rendered geometry and bar-chart problems, split into 1,600 training, 300 development, and 500 test problems by template family. Generators supply reference facts and solutions. Humans review 600 training, 100 development, and 200 test problems and their candidate traces; test premise scores use adjudicated annotations. From test originals we build 200 answer-changing and 100 nuisance-edit image pairs, checking both members for validity and preservation of unrelated facts. Related images, templates, and traces share a split.
+\textbf{Data and split.} Render 3,000 verifiable geometry and bar-chart problems, assigning 1,600 to training, 400 to development, and 1,000 to test. Split by template family before generating traces or image variants. Generators supply checked reference facts and derivations. Two annotators independently audit 300 test problems, adjudicate alternative proofs, and blindly score outputs from every primary arm and seed, including wrong answers. Report agreement before adjudication. Development annotations calibrate the judges; test annotations remain outside fitting and selection.
 
-Table~\ref{tab:experiments} summarizes the evaluation. Newly trained components exclude public benchmark items from training and model selection. Released checkpoints are compared separately by known benchmark exposure. SketchRL-1K includes MathVista questions, so SketchThinker-R1 results on MathVista require an item-level overlap audit.
+\textbf{Controlled reward comparison.} Sufficiency, style, stated-step correctness, and zero auxiliary reward share source problems, compressed SFT data, cold-start initialization, accuracy/format coefficients, and tuning allowance. Match measured policy-training accelerator-hours, including rollouts and judge scoring. A fixed-rollout sensitivity check complements the compute-matched comparison. Match achieved mean reasoning lengths within 5\% using development-only operating-point selection. Freeze prompts, image resolution, decoding, answer parser, and settings before test access; report unmatched points separately. Include long-reasoning and direct-answer references.
+
+\textbf{Interventions and ablations.} Independently construct 200 answer-changing and 100 nuisance-edit pairs from held-out originals. Validate both images, their answers, and preservation of unrelated facts. Regenerate traces for both members; measure both-correct answers and valid support in each image. Shared relational wording passes when valid for both. Nuisance edits test invariance. Separately remove judge image access and omission-negative training; compare these and the stated-step control against the useful-effect thresholds. These contrasts test the proposed mechanisms while independent human labels check reward exploitation.
 
 \begin{table}[ht]
 \centering\small
-\caption{Planned datasets, evaluation measures, and comparisons.}
-\begin{tabular}{@{}p{0.25\linewidth}p{0.34\linewidth}p{0.34\linewidth}@{}}
+\caption{Planned evaluation; all counts and operating points are design choices.}
+\begin{tabular}{@{}p{.25\linewidth}p{.34\linewidth}p{.34\linewidth}@{}}
 \toprule
-\raggedright Dataset / role & \raggedright Metrics & \raggedright Baselines / comparison \tabularnewline
+\raggedright Dataset / role & \raggedright Measures & \raggedright Comparison \tabularnewline
 \midrule
-\raggedright Rendered diagrams; training, development, test & \raggedright Answer accuracy; visual NPR; nonvisual retention; human sufficiency & \raggedright Shared-data style reward, evidence reward, zero component \tabularnewline
-\raggedright Checked image pairs; test only & \raggedright Both-correct rate; evidence consistency; nuisance invariance & \raggedright Same three reward arms; judge without image \tabularnewline
-\raggedright MathVista testmini; MATH-Vision test; MathVerse testmini \cite{mathvista,mathvision,mathverse} & \raggedright Official answer scoring; reasoning tokens; end-to-end latency; difficulty groups where available & \raggedright Long reasoning; direct answer; constrained budget; Sketch-of-Thought prompting \cite{sot}; SketchThinker-R1-7B \cite{sketch} (separate checkpoint comparison) \tabularnewline
+\raggedright Rendered family-held-out test; 1,000 problems & \raggedright Accuracy, achieved length, visual/nonvisual retention, grounding errors & \raggedright Four shared-cold-start arms; three seeds each \tabularnewline
+\raggedright Human audit; 300 test problems & \raggedright Explicit sufficiency, valid deductions, alternative proofs & \raggedright Blinded scoring of every primary arm/seed, including wrong answers \tabularnewline
+\raggedright 200 answer-changing and 100 nuisance pairs & \raggedright Both-correct rate, valid support, nuisance invariance & \raggedright Same arms; separate image-access and omission-training ablations \tabularnewline
+\raggedright Public tests, reserved for transfer & \raggedright Official accuracy, length, end-to-end latency & \raggedright Long reasoning and direct answers; separate checkpoint exposure record \tabularnewline
 \bottomrule
 \end{tabular}
 \label{tab:experiments}
 \end{table}
 
-\textbf{Measurements and falsifiable tests.} RQ1 measures omission within retained derivations, separately from incorrect grounding. For $C\in\{V,N\}$, let $U_C$ contain necessary units explicit and correct in the original trace, and $M_u(z)$ indicate an explicit semantic mention of $u$, regardless of correctness. Write $z_c$ for the compressed trace. For nonempty $U_C$, $d_C^{\rm omit}=1-|U_C|^{-1}\sum_{u\in U_C}M_u(z_c)$ measures omission. Category rates exclude empty sets, report their counts, and macro-average over remaining problems. Incorrect grounding, invalid steps, and adjudicated valid changes of derivation are reported separately. RQ2 will measure answer accuracy, visual necessary-premise retention (NPR), and human-rated sufficiency separately. Paired correctness requires both answers correct; evidence consistency requires each regenerated trace to support its answer with premises true in its own image. Valid relational wording can apply to both images. Nuisance edits test answer invariance.
+\textbf{Omission and retention.} For RQ1, condition omission analysis on retained admissible derivations. Let $U_C$ be necessary units explicit and correct in the original trace, for category $C\in\{V,N\}$. If $M_u(z_c)$ indicates a semantic mention in compressed trace $z_c$, define
+\[
+d_C^{\rm omit}=1-\frac{1}{|U_C|}\sum_{u\in U_C}M_u(z_c),\qquad |U_C|>0.
+\]
+Macro-average over nonempty problems and report empty-category counts. Score false readings, invalid deductions, and valid proof changes separately; an omitted unit differs from a stated but incorrect one. RQ2 evaluates final accuracy and human sufficiency separately, alongside necessary visual/nonvisual premise retention. Judge false acceptance on unsupported traces remains a diagnostic outcome.
 
-\textbf{Fair comparisons and uncertainty.} Development operating points will match achieved average reasoning-token counts within 5\%. Unmatched points are reported separately. The public-test evaluation will use frozen settings and one answer per item, with parser failures counted as incorrect. Latency runs from receipt of prepared input through final-answer completion, including image encoding, image/text prefill, reasoning-trace decoding, and final-answer decoding, on fixed hardware at batch size one after warm-up. MATH-Vision's supplied difficulty levels and annotation-defined derivation-depth groups will support prespecified stratified analysis. Three policy-training seeds and paired bootstrap 95\% confidence intervals will quantify uncertainty, resampling original problem families together with their edits and versions and reporting seed variation. A pilot will estimate the detectable effect.
+\textbf{Transfer.} Reserve public tests for transfer and record checkpoint exposure. Use full MathVision; MathVista requires an item-level overlap audit because SketchRL-1K draws from it \cite{sketch,mathvista}. MathVerse checks diagram dependence within the cap.
 
-For RQ3, the primary evidence-versus-style contrast holds rewritten examples, cold-start weights, decoding, and hyperparameter-search allowance fixed. Training will be capped by measured compute, including rollout generation and judge inference, rather than equal update counts alone. We will report processed text/image tokens, estimated FLOPs, accelerator-hours, and separate preprocessing, cold-start, judge-training, and RL costs. The compressed-trace zero-component arm, original-trace control, and same-rewriter length-preserving control use Eq.~\ref{eq:reward} with $E_\phi=0$ and identical accuracy, format, and length terms at each operating point. These contrasts vary cold-start traces under a fixed policy-training objective; content audits track rewriting changes. Image-ablated judges and removal of the evidence component will test which supervision matters.
+\newpage
+\textbf{Success and uncertainty.} Near 128 achieved reasoning tokens, the primary sufficiency-versus-style contrast must gain at least 3 percentage points in accuracy and 5 points in human-rated sufficiency. Both paired 95\% confidence intervals must lie above zero. Prespecify this contrast and adjust secondary comparisons for multiplicity. Report each of three training seeds, its effect, and the seed-effect range. Paired intervals cluster by original problem family, keeping image variants together; these intervals describe item-sampling uncertainty separately from training variation.
+
+Pilot paired/clustered precision before freezing the protocol. The test size and compute ceiling do not guarantee resolution of the useful-effect thresholds. An interval spanning useful gains and losses leaves the comparison unresolved; an interval ruling out a useful gain bounds its practical value. Retention gains without accuracy gains support an explanation-quality contribution. Prespecified derivation-depth and visual-dependency groups expose subgroup losses that aggregate means conceal.
+
+\textbf{Latency and cost.} Time from prepared-input receipt through final answer, including vision encoding, image/text prefill, reasoning, and answer decoding. Randomize warmed-up timing order on fixed hardware/software, resolution, and batching. Record preparation, shared SFT, judge fitting/scoring, rollout generation, and policy updates in a unified ledger. Report accelerator-hours and API spending separately, along with processed image/text tokens. The primary compute match includes rollout and judge inference; equal update counts alone do not establish equality.
 
 \section{Expected Results \& Timeline}
-We predict greater omission of necessary visual premises than nonvisual steps under text-only compression, and higher NPR and accuracy from evidence supervision at matched budgets, especially on deeper derivations. Null accuracy gains, poor held-out judge precision, or gains lost under compute controls would weaken the predicted advantage. Retention gains alone would support explanation quality.
+We predict that omission-sensitive supervision will retain explicit visual support and improve accuracy under compression. The stated-step baseline determines whether completeness adds value beyond checking what the trace already says. The image-access and omission-negative ablations test the intended supervision mechanisms. Independent trace ratings, alternative proofs, and image pairs define where any benefit holds; the study also reports calibrated judges and useful null results.
 
-The six-month plan (Table~\ref{tab:timeline}) requires four 80GB accelerators and parameter-efficient policy tuning. With $K\leq4$ separately trained budgets, three arms and three seeds require $9K$ principal GRPO runs, up to 36. The month-one pilot will estimate GPU-hours per run, including rollouts and judge inference, and enumerate search, control, and ablation runs. Four accelerators supply 2,880 GPU-hours per 30-day month. At usable fraction $u$, month-four training must satisfy $H_{\rm principal}+H_{\rm overhead}\leq2,880u$: at $K=4$, at most $80u$ GPU-hours per principal run before shared overhead. We will report pilot estimates and reduce $K$ if projected costs exceed capacity, retaining three seeds and the principal contrast. Month-five controls receive a separate GPU-hour allocation. Blinded human audits, validated alternative proofs, and separate public-benchmark results address judge errors, annotation ambiguity, and transfer risk. Outputs include code, rubrics, permitted data and edits, calibration records, and accuracy--cost curves, including null results.
+Use LoRA on two 80GB accelerators with a total cap of 400 accelerator-hours: 12 principal runs (four arms $\times$ three seeds) at 25 hours each consume 300, leaving 100 for judges, shared preparation, selection, diagnostics, evaluation, and ablations. Hours sum occupancy across all accelerators; 25 accelerator-hours on two devices is 12.5 wall hours. Begin with judge discrimination and frozen-policy diagnostics. Pilot throughput before RL; reduce data/steps equally if required, preserving three seeds and the primary contrast. One budget-conditioned policy covers all operating points in each run.
 
 \begin{table}[ht]
 \centering\small
-\caption{Month-by-month milestones and decision points.}
+\caption{Six-month milestones within the shared resource ceiling.}
 \label{tab:timeline}
-\begin{tabular}{@{}p{0.08\linewidth}p{0.84\linewidth}@{}}
+\begin{tabular}{@{}p{.08\linewidth}p{.84\linewidth}@{}}
 \toprule
-Month & Activities and deliverables \\
+Month & Activities and decision points \\
 \midrule
-1 & Reproduce baselines; pilot compute; freeze splits, scoring, and annotation rubric. \\
-2 & Generate and annotate diagrams; adjudicate pairs; pilot deletion-rate analysis. \\
-3 & Train and calibrate judges; audit negatives; check acceptance and recall targets. \\
-4 & Train principal reward arms with three seeds; freeze budget operating points. \\
-5 & Run controls, ablations, and held-out tests; analyze uncertainty and difficulty. \\
-6 & Complete human audit, failure analysis, reproducibility package, and report. \\
+1 & Judge/frozen-policy diagnostics; throughput and precision pilots; freeze split and rubric. \\
+2 & Render problems; annotate derivations; independently validate image pairs. \\
+3 & Calibrate judges; pass false-acceptance and recall gate before policy training. \\
+4 & Train four reward arms with three seeds and common budget conditioning. \\
+5 & Freeze operating points; evaluate held-out families, transfer, and separate ablations. \\
+6 & Complete blinded human audit, uncertainty analysis, cost ledger, and release. \\
 \bottomrule
 \end{tabular}
 \end{table}
 
+Outputs will include permitted data and image edits, generators, annotation rubrics, judge calibration, policy configurations, and accuracy--length curves. The final report will identify the conditions where sufficiency supervision improves compressed reasoning and those where it offers no advantage.
+
 \clearpage
-\begin{thebibliography}{12}
+\begin{thebibliography}{13}
 \small
 \bibitem{wei} Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Brian Ichter, Fei Xia, Ed Chi, Quoc Le, and Denny Zhou. 2022. Chain-of-Thought Prompting Elicits Reasoning in Large Language Models. \arxiv{2201.11903}. Conference version: \emph{NeurIPS}, 2022.
 \bibitem{deepseek} DeepSeek-AI, Daya Guo, Dejian Yang, Haowei Zhang, et al. 2025. DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning. \arxiv{2501.12948}. Published version: \emph{DeepSeek-R1 incentivizes reasoning in LLMs through reinforcement learning}, \emph{Nature} 645, 633--638 (2025), \href{https://doi.org/10.1038/s41586-025-09422-z}{doi:10.1038/s41586-025-09422-z}.
@@ -145,5 +156,6 @@ Month & Activities and deliverables \\
 \bibitem{mathvision} Ke Wang, Junting Pan, Weikang Shi, Zimu Lu, Mingjie Zhan, and Hongsheng Li. 2024. Measuring Multimodal Mathematical Reasoning with MATH-Vision Dataset. \arxiv{2402.14804}. Conference version: \emph{NeurIPS, Datasets and Benchmarks Track}, 2024.
 {\raggedright\bibitem{qwen} Shuai Bai, Keqin Chen, Xuejing Liu, Jialin Wang, et al. 2025. Qwen2.5-VL Technical Report. \arxiv{2502.13923}.\par}
 \bibitem{grpo} Zhihong Shao, Peiyi Wang, Qihao Zhu, Runxin Xu, Junxiao Song, Xiao Bi, Haowei Zhang, Mingchuan Zhang, Y.K. Li, Y. Wu, and Daya Guo. 2024. DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models. \arxiv{2402.03300}.
+\bibitem{visualprm} Weiyun Wang, Zhangwei Gao, Lianjie Chen, Zhe Chen, Jinguo Zhu, Xiangyu Zhao, Yangzhou Liu, Yue Cao, Shenglong Ye, Xizhou Zhu, Lewei Lu, Haodong Duan, Yu Qiao, Jifeng Dai, and Wenhai Wang. 2026. VisualPRM400K: An Effective Dataset for Training Multimodal Process Reward Models. \emph{ICLR}. Preprint: \emph{VisualPRM: An Effective Process Reward Model for Multimodal Reasoning} (2025), \arxiv{2503.10291}.
 \end{thebibliography}
 \end{document}

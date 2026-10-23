@@ -1,6 +1,6 @@
 # Reference field audit
 
-Checked 2026-10-22 against the linked primary arXiv landing pages using web access. Each title, listed author sequence, initial preprint year, and arXiv identifier matches the source. This is primary-record verification, not independent bibliographic cross-corroboration. No journal volume, issue, or page range is claimed; all entries consistently cite preprints. DeepSeek-R1 and Qwen2.5-VL deliberately abbreviate long author lists with “et al.”; other lists are complete. MathVista and Let's Verify Step by Step use 2023 preprint years rather than later venue years. No uncertain reference remains requiring an UNVERIFIED comment.
+Original twelve references were checked on 2026-10-22 against the linked primary arXiv landing pages. Their bibliography entries are retained unchanged in this synchronization. The table below preserves that prior field audit; it is not a claim of fresh multi-source verification of every retained entry. DeepSeek-R1 and Qwen2.5-VL deliberately abbreviate long author lists with “et al.”. Preprint and publication titles/years are distinguished where both appear.
 
 Correction (2026-10-22): SketchThinker-R1 is not arXiv-only; it was published at ICLR 2026 as a poster, and the bibliography entry now cites the ICLR version with the arXiv ID kept as a secondary link. A text comparison of the proceedings PDF with arXiv v1 found identical body text, tables and pagination (28 pages); the only differences are the running header and an added acknowledgment. Every number the proposal and talk use (reward weights 0.5/0.4/0.1, Tables 1–2) is unchanged.
 
@@ -27,4 +27,16 @@ Correction (2026-10-22): SketchThinker-R1 is not arXiv-only; it was published at
 - Source §3 reports GPT-5 rewriting. The proposal treats effects as a hypothesis and audits content in length-preserving controls.
 - [MathVerse official repository](https://github.com/ZrrSkywalker/MathVerse): testmini and its evaluation route confirmed. Public versions are grouped with original items in uncertainty estimation.
 
-All 12 bibliography keys are cited in the text; no cited key lacks an entry.
+## Added precedent: VisualPRM (checked 2026-10-23)
+
+The revised analysis cites VisualPRM in Direction 1. Checked all fifteen authors in order, both titles, publication year/venue, and arXiv identifier against the following primary records:
+
+- [arXiv:2503.10291](https://arxiv.org/abs/2503.10291): *VisualPRM: An Effective Process Reward Model for Multimodal Reasoning*, submitted 13 March 2025.
+- [Author project page](https://internvl.github.io/blog/2025-03-13-VisualPRM/): same title, 2025 date, full author sequence and step-correctness supervision description.
+- [Official ICLR 2026 proceedings](https://proceedings.iclr.cc/paper_files/paper/2026/hash/d68b4e80fd0dd8ac72092b3acd418f75-Abstract-Conference.html): *VisualPRM400K: An Effective Dataset for Training Multimodal Process Reward Models*, same fifteen authors, ICLR 2026. The publication title differs from the original preprint; the entry explicitly records both titles and years. No volume/pages are asserted.
+
+Authors: Weiyun Wang; Zhangwei Gao; Lianjie Chen; Zhe Chen; Jinguo Zhu; Xiangyu Zhao; Yangzhou Liu; Yue Cao; Shenglong Ye; Xizhou Zhu; Lewei Lu; Haodong Duan; Yu Qiao; Jifeng Dai; Wenhai Wang.
+
+Status: **Verified** against arXiv, author project, and official proceedings. OpenReview's browser challenge prevented inspection there; the proceedings supplies the publication record. Let's Verify Step by Step was already one of the twelve retained entries; its arXiv title, 2023 year, identifier and ten-author sequence were rechecked on 2026-10-23. SketchThinker-R1's title/authors/ICLR 2026 venue were also rechecked against its official proceedings; all paper numbers use the supplied local text.
+
+Citation coverage: thirteen cited keys, thirteen bibliography entries; no missing or uncited key. The only added research citation is VisualPRM. Skill/software acknowledgment is recorded separately in `docs/presentation/output/skills-used.md`.
