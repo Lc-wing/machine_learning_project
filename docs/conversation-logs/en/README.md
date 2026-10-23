@@ -20,8 +20,8 @@ Results of every conversation with the Cursor agent, in chronological order. Chi
 | [14](2026-10-21-14-research-plan.md) | 2026-10-21 | One-page research plan: image-conditioned sufficiency | Done; see `docs/research-plan/sketch-sufficiency.pdf` |
 | [15](2026-10-22-15-formal-research-proposal.md) | 2026-10-22 | Formal proposal: preserving visual evidence in compressed multimodal reasoning | Merged via PR #7; 4 body pages + references |
 | [16](2026-10-22-16-proposal-audit-fixes.md) | 2026-10-22 | Proposal audit fixes: findings 1–14 and M1–M5 | Merged via PR #8; 4 body pages + references |
-| [17](2026-10-22-17-iclr-venue-fix.md) | 2026-10-22 | SketchThinker-R1 venue correction: ICLR 2026 | PR #9 open; not merged |
-| [18](2026-10-23-18-plan-skill-review.md) | 2026-10-23 | One-page plan: skill-based review and fixes | PR open; not merged |
+| [17](2026-10-22-17-iclr-venue-fix.md) | 2026-10-22 | SketchThinker-R1 venue correction: ICLR 2026 | Merged in PR #9 |
+| [18](2026-10-23-18-plan-skill-review.md) | 2026-10-23 | One-page plan: skill-based review and fixes | Merged in PR #10 |
 | [19](2026-10-23-19-paper-analysis-skill-review.md) | 2026-10-23 | Fresh skill-based paper analysis, three probed directions, chosen plan, and full Chinese translation | Merged (PR #11) |
-| [20](2026-10-23-20-sync-proposal-script-outline.md) | 2026-10-23 | Sync proposal and speaker script with revised plan; slide outline | PR open; not merged |
+| [20](2026-10-23-20-sync-proposal-script-outline.md) | 2026-10-23 | Sync proposal and speaker script with revised plan; slide outline | Merged in PR #12 |
 | [21](2026-10-23-21-readme-refresh.md) | 2026-10-23 | Rewrite README.md to reflect the repository | PR open; not merged |

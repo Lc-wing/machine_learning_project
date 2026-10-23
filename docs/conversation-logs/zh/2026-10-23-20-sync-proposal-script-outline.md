@@ -2,7 +2,7 @@
 
 [English version](../en/2026-10-23-20-sync-proposal-script-outline.md)
 
-日期：2026-10-23。状态：分支 [sync-proposal-ppt](https://github.com/Lc-wing/machine_learning_project/tree/sync-proposal-ppt) 已创建拉取请求，未合并。
+日期：2026-10-23。状态：分支 [sync-proposal-ppt](https://github.com/Lc-wing/machine_learning_project/tree/sync-proposal-ppt) 已在 [PR #12](https://github.com/Lc-wing/machine_learning_project/pull/12) 合并。
 
 ## 请求
 

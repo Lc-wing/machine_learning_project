@@ -2,7 +2,7 @@
 
 [中文版](../zh/2026-10-23-20-sync-proposal-script-outline.md)
 
-Date: 2026-10-23. Status: PR open on branch [sync-proposal-ppt](https://github.com/Lc-wing/machine_learning_project/tree/sync-proposal-ppt); not merged.
+Date: 2026-10-23. Status: PR open on branch [sync-proposal-ppt](https://github.com/Lc-wing/machine_learning_project/tree/sync-proposal-ppt); merged in [PR #12](https://github.com/Lc-wing/machine_learning_project/pull/12).
 
 ## Request
 
