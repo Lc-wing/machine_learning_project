@@ -35,16 +35,16 @@
 <p>Preserving Visual Evidence in Compressed Multimodal Reasoning</p>
 
 <h2>Problem Statement</h2>
-<p>SketchThinker-R1 supervises reasoning style with a judge that receives neither the image nor the question, leaving the preservation of answer-critical visual evidence unverified. This motivates testing whether evidence-aware supervision can improve the accuracy–length tradeoff over style supervision.</p>
+<p>SketchThinker-R1 evaluates key-step preservation in its cold-start data, but its training-time style judge receives neither the image nor the question. The paper does not test whether explicitly rewarding grounded visual premises improves the accuracy–length tradeoff of learned reasoning traces.</p>
 
 <h2>Proposed Solution</h2>
-<p>We propose an image-conditioned sufficiency reward that favors concise traces retaining the visual premises and valid deductions needed to support an answer. Using one 7B model and verifiable diagram problems, we will annotate necessary premises and build human-checked image pairs that change one answer-critical fact; these annotations will train and validate a judge that sees the image, question, and trace, so a correct final answer alone does not count as sufficient. Sufficiency and style rewards will be compared on identical rewritten training data with matched compute, plus original-trace and length-preserving rewrite controls, reporting answer accuracy, premise retention, and paired-image correctness across token budgets and difficulty groups. This tests whether evidence preservation improves compression beyond effects of rewriting or training resources.</p>
+<p>We propose an image-conditioned sufficiency reward for traces that retain grounded visual premises and valid deductions. Using one Qwen2.5-VL-7B-Instruct backbone and a small set of verifiable diagram problems, we will annotate required visual premises and nonvisual deductions for valid solution paths and build human-checked image pairs differing in one answer-changing fact. We will split by underlying problem before constructing pairs, train a judge on complete traces and versions with premises deleted or contradicted, and validate it against held-out human labels. The judge will see the image, question, and trace. We will replace only SketchThinker-R1’s style reward, keeping accuracy and format rewards fixed; both arms will share rewritten cold-start data, initialization, and a policy-training compute budget, with judge training and scoring costs reported separately. A common length penalty tuned on validation data will match average reasoning-token budgets. Original-trace and length-preserving rewrite controls will isolate rewriting effects; an image-blind sufficiency judge will test dependence on visual access. Across token budgets and difficulty groups defined before training, we will report answer accuracy, annotated-premise retention, and the fraction of image pairs answered correctly on both versions.</p>
 
 <h2>Key Research Questions</h2>
 <ul>
-  <li>Does text-only compression delete a larger proportion of annotated necessary visual premises than necessary nonvisual reasoning steps?</li>
+  <li>When long traces are rewritten into sketches, are required visual premises omitted more often than nonvisual deductions on valid solution paths?</li>
   <li>At matched average reasoning-token budgets, does sufficiency supervision improve answer accuracy and necessary-premise retention over style supervision, particularly on harder items?</li>
-  <li>Does the advantage persist with identical rewritten training data and matched training compute, and how do original-trace and length-preserving rewrite controls affect the comparison?</li>
+  <li>Does sufficiency supervision improve correctness on both versions of answer-changing image pairs, and how does removing the judge’s image access affect that gain?</li>
 </ul>
 
 <h2>Expected Outcome</h2>
