@@ -71,7 +71,7 @@ soffice --headless --convert-to pdf --outdir docs/presentation/output docs/prese
 
 The work was done with AI coding agents (Codex CLI and Cursor) using research skill collections:
 
-- **`.agents/skills/`**: 23 skills from [Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills), covering literature search, citation and reference verification, paper reading, figures, statistics, writing, polishing, peer review, slide generation, and `researchwrite` for proposals and research plans. [`skills-lock.json`](skills-lock.json) records the source and hash of 21 of them; `nature-image2ppt` and `nature-paper2ppt` are not listed there.
+- **`.agents/skills/`**: 23 skills from [Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills), covering literature search, citation and reference verification, paper reading, figures, statistics, writing, polishing, peer review, slide generation, and `researchwrite` for proposals and research plans. [`skills-lock.json`](skills-lock.json) records the source and hash of all 23.
 - **`.cursor/skills/`**: [`ai-scientist`](.cursor/skills/ai-scientist/SKILL.md) (running Sakana AI's The AI Scientist), [`first-principles-assumption-inverter`](.cursor/skills/first-principles-assumption-inverter/SKILL.md), and [`gap-contradiction-miner`](.cursor/skills/gap-contradiction-miner/SKILL.md).
 - **`.cursor/rules/`**: [`conversation-logs.mdc`](.cursor/rules/conversation-logs.mdc) (always on) requires a Chinese and an English record of every conversation; [`automl-hyperparameter-optimization.mdc`](.cursor/rules/automl-hyperparameter-optimization.mdc) applies to Python ML code.
 
