@@ -88,12 +88,10 @@ The root README contains only the repository description and no documentation in
 
 ## Build and validation
 
-The exact requested Chrome command was attempted. It failed with `Failed to create a unique user data directory for headless`. A writable temporary profile reached `setsockopt: Operation not permitted` and exited before rendering. The Chrome renderer requirement remains unverified in this restricted container.
-
-Rebuilt the PDF from the final HTML with installed PyMuPDF Story, preserving the Letter page, original margins, and Liberation Serif/Sans regular/bold fonts. PDF metadata explicitly identifies the fallback. `pdfinfo` reports **Pages: 1**. Rendered the rebuilt page and inspected it: all five sections and three question bullets are legible, with no clipping or overflow. Automated final checks cover HTML section/cardinality, unchanged CSS, PDF text parity and bounds, numerical parity between translations, local links, protected-file hashes, and `git diff --check`. No commit was made. The pre-existing untracked skill `__pycache__` directory was left untouched.
+Rebuilt the plan PDF with `google-chrome --headless --print-to-pdf`; `pdfinfo` reports **Pages: 1**, and the rendered page was inspected (five sections, three question bullets, no overflow). The analysis PDFs were rendered from the Markdown via HTML with Chrome headless; Noto Sans CJK SC is embedded in the Chinese PDF.
 
 ## Editorial revision, 2026-10-23
 
 Applied [nature-polishing](/workspace/machine_learning_project/.agents/skills/nature-polishing/SKILL.md) to compress the English analysis and produce a complete Chinese translation; applied verification-before-completion to the final checks. Removed the header/probing disclaimers and repeated defensive qualifications. Retained all three prompt sections, verified paper numbers and locators, the chosen visual-support direction, and each direction's data, controls, baselines, metrics, ablations, success criterion, and compute cap. Shared experimental rules now carry repeated design requirements. The terminology remains SketchJudge, MathVision, explicit visual support, and accelerator-hours; the Chinese equivalents are 评判器、MathVision、显式视觉支持、加速器小时.
 
-This editorial pass leaves the existing one-page HTML/PDF intact. Its Direction 1 protocol remains aligned with the analysis. Checks cover compression, bilingual numeric/reference parity, local links, source arithmetic, whitespace, and protected-file hashes. Status: PR pending on branch `analysis-skill-review`; no commit made.
+Its Direction 1 protocol remains aligned with the analysis. Checks cover compression, bilingual numeric/reference parity, local links, source arithmetic, whitespace, and protected-file hashes. Status: [PR #11](https://github.com/Lc-wing/machine_learning_project/pull/11), not merged.
