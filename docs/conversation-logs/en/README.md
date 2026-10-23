@@ -22,3 +22,4 @@ Results of every conversation with the Cursor agent, in chronological order. Chi
 | [16](2026-10-22-16-proposal-audit-fixes.md) | 2026-10-22 | Proposal audit fixes: findings 1–14 and M1–M5 | Merged via PR #8; 4 body pages + references |
 | [17](2026-10-22-17-iclr-venue-fix.md) | 2026-10-22 | SketchThinker-R1 venue correction: ICLR 2026 | PR #9 open; not merged |
 | [18](2026-10-23-18-plan-skill-review.md) | 2026-10-23 | One-page plan: skill-based review and fixes | PR open; not merged |
+| [19](2026-10-23-19-paper-analysis-skill-review.md) | 2026-10-23 | Fresh skill-based paper analysis, three probed directions, chosen plan, and full Chinese translation | PR pending on branch `analysis-skill-review` |
