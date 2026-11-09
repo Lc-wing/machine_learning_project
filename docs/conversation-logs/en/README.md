@@ -27,3 +27,4 @@ Results of every conversation with the Cursor agent, in chronological order. Chi
 | [21](2026-10-23-21-readme-refresh.md) | 2026-10-23 | Rewrite README.md to reflect the repository | Merged in PR #13 |
 | [24](2026-11-10-24-replace-direction-11.md) | 2026-11-10 | Replace record 11 with three directions that have not been done | This branch; awaiting merge |
 | [25](2026-11-10-25-judge-image-sufficiency.md) | 2026-11-10 | Six research questions, and whether image-conditioned sufficiency should be the plan | This branch; awaiting merge |
+| [26](2026-11-10-26-plan-versus-pain-point.md) | 2026-11-10 | Whether the current one-page plan hits the paper's largest pain point | This branch; awaiting merge; plan text unchanged |
