@@ -26,3 +26,4 @@ Results of every conversation with the Cursor agent, in chronological order. Chi
 | [20](2026-10-23-20-sync-proposal-script-outline.md) | 2026-10-23 | Sync proposal and speaker script with revised plan; slide outline | Merged in PR #12 |
 | [21](2026-10-23-21-readme-refresh.md) | 2026-10-23 | Rewrite README.md to reflect the repository | Merged in PR #13 |
 | [24](2026-11-10-24-replace-direction-11.md) | 2026-11-10 | Replace record 11 with three directions that have not been done | This branch; awaiting merge |
+| [25](2026-11-10-25-judge-image-sufficiency.md) | 2026-11-10 | Six research questions, and whether image-conditioned sufficiency should be the plan | This branch; awaiting merge |
