@@ -24,4 +24,5 @@ Results of every conversation with the Cursor agent, in chronological order. Chi
 | [18](2026-10-23-18-plan-skill-review.md) | 2026-10-23 | One-page plan: skill-based review and fixes | Merged in PR #10 |
 | [19](2026-10-23-19-paper-analysis-skill-review.md) | 2026-10-23 | Fresh skill-based paper analysis, three probed directions, chosen plan, and full Chinese translation | Merged (PR #11) |
 | [20](2026-10-23-20-sync-proposal-script-outline.md) | 2026-10-23 | Sync proposal and speaker script with revised plan; slide outline | Merged in PR #12 |
-| [21](2026-10-23-21-readme-refresh.md) | 2026-10-23 | Rewrite README.md to reflect the repository | PR open; not merged |
+| [21](2026-10-23-21-readme-refresh.md) | 2026-10-23 | Rewrite README.md to reflect the repository | Merged in PR #13 |
+| [23](2026-11-10-23-autoresearchclaw-skills.md) | 2026-11-10 | Install 22 AutoResearchClaw skills | This branch; awaiting merge |
