@@ -14,7 +14,7 @@ Results of every conversation with the Cursor agent, in chronological order. Chi
 | [08](2026-10-21-08-conversation-logging.md) | 2026-10-21 | Store every conversation's results in the repository as Markdown | [PR #4](https://github.com/Lc-wing/machine_learning_project/pull/4) awaiting merge |
 | [09](2026-10-21-09-bilingual-logs.md) | 2026-10-21 | Keep separate all-Chinese and all-English versions of the records | [PR #4](https://github.com/Lc-wing/machine_learning_project/pull/4) awaiting merge |
 | [10](2026-10-21-10-sketchthinker-future-directions.md) | 2026-10-21 | Three future directions that address the SketchThinker-R1 limitations | Done |
-| [11](2026-10-21-11-sketchthinker-existing-directions.md) | 2026-10-21 | Three more directions, prior work allowed | Done |
+| [11](2026-10-21-11-sketchthinker-existing-directions.md) | 2026-10-21 | Three more directions, prior work allowed | Replaced by 24; original kept |
 | [12](2026-10-21-12-direction-questions-experiments.md) | 2026-10-21 | A research question and a validating experiment for every direction | Done; direction 3's criterion corrected |
 | [13](2026-10-21-13-answer-check.md) | 2026-10-21 | Check whether the previous answer matched the question | Done |
 | [14](2026-10-21-14-research-plan.md) | 2026-10-21 | One-page research plan: image-conditioned sufficiency | Done; see `docs/research-plan/sketch-sufficiency.pdf` |
@@ -24,4 +24,5 @@ Results of every conversation with the Cursor agent, in chronological order. Chi
 | [18](2026-10-23-18-plan-skill-review.md) | 2026-10-23 | One-page plan: skill-based review and fixes | Merged in PR #10 |
 | [19](2026-10-23-19-paper-analysis-skill-review.md) | 2026-10-23 | Fresh skill-based paper analysis, three probed directions, chosen plan, and full Chinese translation | Merged (PR #11) |
 | [20](2026-10-23-20-sync-proposal-script-outline.md) | 2026-10-23 | Sync proposal and speaker script with revised plan; slide outline | Merged in PR #12 |
-| [21](2026-10-23-21-readme-refresh.md) | 2026-10-23 | Rewrite README.md to reflect the repository | PR open; not merged |
+| [21](2026-10-23-21-readme-refresh.md) | 2026-10-23 | Rewrite README.md to reflect the repository | Merged in PR #13 |
+| [24](2026-11-10-24-replace-direction-11.md) | 2026-11-10 | Replace record 11 with three directions that have not been done | This branch; awaiting merge |

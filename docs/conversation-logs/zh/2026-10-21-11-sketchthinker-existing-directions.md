@@ -3,6 +3,7 @@
 - 日期：2026-10-21
 - 承接：[07](2026-10-21-07-sketchthinker-r1-limitations.md)、[10](2026-10-21-10-sketchthinker-future-directions.md)
 - 问题：再给出三个方向，方向可以已经有人做。
+- 状态：其中三条方向已被 [24](2026-11-10-24-replace-direction-11.md) 替代。下面保留的是当时的原文。
 - 英文版：[点此查看](../en/2026-10-21-11-sketchthinker-existing-directions.md)
 
 ## 结论

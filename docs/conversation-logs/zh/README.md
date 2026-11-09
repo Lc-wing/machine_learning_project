@@ -14,7 +14,7 @@
 | [08](2026-10-21-08-conversation-logging.md) | 2026-10-21 | 把所有对话结果以 Markdown 形式存入仓库 | [拉取请求 #4](https://github.com/Lc-wing/machine_learning_project/pull/4) 待合并 |
 | [09](2026-10-21-09-bilingual-logs.md) | 2026-10-21 | 对话记录分别生成全中文版和全英文版 | [拉取请求 #4](https://github.com/Lc-wing/machine_learning_project/pull/4) 待合并 |
 | [10](2026-10-21-10-sketchthinker-future-directions.md) | 2026-10-21 | 针对 SketchThinker-R1 局限的三个后续研究方向 | 已完成 |
-| [11](2026-10-21-11-sketchthinker-existing-directions.md) | 2026-10-21 | 再给三个方向（允许已有人做过） | 已完成 |
+| [11](2026-10-21-11-sketchthinker-existing-directions.md) | 2026-10-21 | 再给三个方向（允许已有人做过） | 已被 24 替代；原文保留 |
 | [12](2026-10-21-12-direction-questions-experiments.md) | 2026-10-21 | 每个方向的研究问题与验证实验 | 已完成；方向三的验证判据已更正 |
 | [13](2026-10-21-13-answer-check.md) | 2026-10-21 | 检查上一轮答案是否符合问题 | 已完成 |
 | [14](2026-10-21-14-research-plan.md) | 2026-10-21 | 一页研究计划：看见图像的充分性奖励 | 已完成，见 `docs/research-plan/sketch-sufficiency.pdf` |
@@ -24,4 +24,5 @@
 | [18](2026-10-23-18-plan-skill-review.md) | 2026-10-23 | 单页研究计划：基于技能的复审与修订 | 已在 PR #10 合并 |
 | [19](2026-10-23-19-paper-analysis-skill-review.md) | 2026-10-23 | 基于技能重新分析论文、深入验证三个方向、选定计划及完整中文翻译 | 已合并（PR #11） |
 | [20](2026-10-23-20-sync-proposal-script-outline.md) | 2026-10-23 | 计划书与演讲稿同步修订版计划；幻灯片大纲 | 已在 PR #12 合并 |
-| [21](2026-10-23-21-readme-refresh.md) | 2026-10-23 | 重写 README.md 以反映仓库现状 | PR 已开启，未合并 |
+| [21](2026-10-23-21-readme-refresh.md) | 2026-10-23 | 重写 README.md 以反映仓库现状 | 已在 PR #13 合并 |
+| [24](2026-11-10-24-replace-direction-11.md) | 2026-11-10 | 用三个尚未有人做过的方向替换编号 11 | 本分支，待合并 |

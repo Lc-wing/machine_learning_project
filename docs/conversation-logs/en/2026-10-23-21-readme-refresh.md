@@ -2,7 +2,7 @@
 
 [中文版](../zh/2026-10-23-21-readme-refresh.md)
 
-Date: 2026-10-23. Status: PR open on branch [readme-refresh](https://github.com/Lc-wing/machine_learning_project/tree/readme-refresh); not merged.
+Date: 2026-10-23. Status: Merged in [PR #13](https://github.com/Lc-wing/machine_learning_project/pull/13).
 
 ## Request
 

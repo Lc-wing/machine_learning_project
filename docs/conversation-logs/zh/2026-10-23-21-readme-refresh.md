@@ -2,7 +2,7 @@
 
 [English](../en/2026-10-23-21-readme-refresh.md)
 
-日期：2026-10-23。状态：分支 [readme-refresh](https://github.com/Lc-wing/machine_learning_project/tree/readme-refresh) 上的 PR 已开启，未合并。
+日期：2026-10-23。状态：已通过 [拉取请求 #13](https://github.com/Lc-wing/machine_learning_project/pull/13) 合并。
 
 ## 请求
 

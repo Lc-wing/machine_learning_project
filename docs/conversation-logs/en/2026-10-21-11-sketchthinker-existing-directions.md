@@ -3,6 +3,7 @@
 - Date: 2026-10-21
 - Follows: [07](2026-10-21-07-sketchthinker-r1-limitations.md), [10](2026-10-21-10-sketchthinker-future-directions.md)
 - Question: Give three more directions. They may already have been done.
+- Status: Those three directions are replaced by [24](2026-11-10-24-replace-direction-11.md). The text below is the original answer.
 - Chinese version: [中文](../zh/2026-10-21-11-sketchthinker-existing-directions.md)
 
 ## Conclusion
