@@ -24,4 +24,5 @@
 | [18](2026-10-23-18-plan-skill-review.md) | 2026-10-23 | 单页研究计划：基于技能的复审与修订 | 已在 PR #10 合并 |
 | [19](2026-10-23-19-paper-analysis-skill-review.md) | 2026-10-23 | 基于技能重新分析论文、深入验证三个方向、选定计划及完整中文翻译 | 已合并（PR #11） |
 | [20](2026-10-23-20-sync-proposal-script-outline.md) | 2026-10-23 | 计划书与演讲稿同步修订版计划；幻灯片大纲 | 已在 PR #12 合并 |
-| [21](2026-10-23-21-readme-refresh.md) | 2026-10-23 | 重写 README.md 以反映仓库现状 | PR 已开启，未合并 |
+| [21](2026-10-23-21-readme-refresh.md) | 2026-10-23 | 重写 README.md 以反映仓库现状 | 已在 PR #13 合并 |
+| [22](2026-11-10-22-academic-research-skills.md) | 2026-11-10 | 安装 academic-research-skills 的五个技能 | 本分支，待合并 |
