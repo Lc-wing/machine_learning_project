@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Research Plan: Where Sketch-Style Brevity Starts to Cost Accuracy</title>
+<style>
+  @page { size: letter; margin: 0.48in 0.58in; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { font-family: "Liberation Serif", "Times New Roman", Times, serif; font-size: 10.5pt; line-height: 1.26; color: #1a1a1a; }
+  h1 { font-size: 13.5pt; line-height: 1.25; margin: 0 0 2pt; font-weight: 700; }
+  .kicker { font-family: "Liberation Sans", Arial, sans-serif; font-size: 8.5pt; letter-spacing: 0.04em; text-transform: uppercase; color: #555; margin: 0 0 8pt; }
+  h2 { font-family: "Liberation Sans", Arial, sans-serif; font-size: 10.5pt; margin: 7pt 0 1pt; font-weight: 700; }
+  p { margin: 0 0 4pt; }
+  ul { margin: 2pt 0 4pt 1.1em; padding: 0; }
+  li { margin: 0 0 2pt; }
+  table { width: 100%; border-collapse: collapse; margin: 4pt 0 0; font-size: 9pt; line-height: 1.22; }
+  th, td { border: 0.6pt solid #bbb; padding: 2pt 4pt; vertical-align: top; text-align: left; }
+  th { font-family: "Liberation Sans", Arial, sans-serif; background: #f3f3f3; font-weight: 700; }
+</style>
+</head>
+<body>
+<p class="kicker">Research plan · one page · based on SketchThinker-R1 (ICLR 2026)</p>
+<h1>Where Sketch-Style Brevity Starts to Cost Accuracy</h1>
+<h2>Working Title</h2>
+<p>Where Sketch-Style Brevity Starts to Cost Accuracy.</p>
+<h2>Problem Statement</h2>
+<p>SketchThinker-R1 reports no accuracy loss on traces that already average 182–240 tokens, while its introduction is about traces of thousands of tokens. Forcing longer thinking can raise accuracy (s1, EMNLP 2025), so an average over short items can hide a difficulty threshold.</p>
+<h2>Proposed Solution</h2>
+<p>This plan does not train a new reward. It maps where unconditional shortening stops being accuracy-neutral. A multimodal reasoner that actually writes long traces, and a sketch-style counterpart trained on the same data, will be compared on MathVision’s published difficulty levels, plus a direct-answer arm. Each level gets its own accuracy gap, token ratio, multiple seeds, and a confidence interval; levels are not averaged first. Alternative correct proofs are accepted. The proposition fails if the gap does not widen with difficulty. AdaptThink’s binary think-or-not switch is not used, because an average-accuracy constraint can hide losses on hard items.</p>
+<h2>Key Research Questions</h2>
+<ul>
+  <li>Does the accuracy gap against a long trace widen across MathVision’s difficulty levels?</li>
+  <li>At which level does the sketch fall below both the long trace and a direct answer, after binomial uncertainty?</li>
+  <li>On levels where accuracy is preserved, does the token reduction remain large?</li>
+</ul>
+<h2>Expected Outcome</h2>
+<p>The study will report a difficulty threshold, with uncertainty, for when sketch-style shortening stops being accuracy-neutral.</p>
+<h2>Comparison</h2>
+<table>
+  <thead><tr><th></th><th>What the paper reports</th><th>This plan</th></tr></thead>
+  <tbody>
+<tr><td>Unit of analysis</td><td>A mean over mixed items</td><td>One difficulty level at a time</td></tr>
+<tr><td>Reasoning regime</td><td>182–240 tokens on average</td><td>A model that writes long traces</td></tr>
+<tr><td>Result that refutes it</td><td>—</td><td>The accuracy gap does not widen with difficulty</td></tr>
+  </tbody>
+</table>
+</body>
+</html>
