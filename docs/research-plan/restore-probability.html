@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Research Plan: Delete a Sentence Only When Putting It Back Leaves the Answer Still</title>
+<style>
+  @page { size: letter; margin: 0.48in 0.58in; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { font-family: "Liberation Serif", "Times New Roman", Times, serif; font-size: 10.5pt; line-height: 1.26; color: #1a1a1a; }
+  h1 { font-size: 13.5pt; line-height: 1.25; margin: 0 0 2pt; font-weight: 700; }
+  .kicker { font-family: "Liberation Sans", Arial, sans-serif; font-size: 8.5pt; letter-spacing: 0.04em; text-transform: uppercase; color: #555; margin: 0 0 8pt; }
+  h2 { font-family: "Liberation Sans", Arial, sans-serif; font-size: 10.5pt; margin: 7pt 0 1pt; font-weight: 700; }
+  p { margin: 0 0 4pt; }
+  ul { margin: 2pt 0 4pt 1.1em; padding: 0; }
+  li { margin: 0 0 2pt; }
+  table { width: 100%; border-collapse: collapse; margin: 4pt 0 0; font-size: 9pt; line-height: 1.22; }
+  th, td { border: 0.6pt solid #bbb; padding: 2pt 4pt; vertical-align: top; text-align: left; }
+  th { font-family: "Liberation Sans", Arial, sans-serif; background: #f3f3f3; font-weight: 700; }
+</style>
+</head>
+<body>
+<p class="kicker">Research plan · one page · based on SketchThinker-R1 (ICLR 2026)</p>
+<h1>Delete a Sentence Only When Putting It Back Leaves the Answer Still</h1>
+<h2>Working Title</h2>
+<p>Delete a Sentence Only When Putting It Back Leaves the Answer Still.</p>
+<h2>Problem Statement</h2>
+<p>SketchThinker-R1’s style reward scores a numbered list as sufficient and a long trace as not, without consulting the probability of the answer. A deleted sentence that was the only justification can leave the answer unchanged on the page while the model was not using it.</p>
+<h2>Proposed Solution</h2>
+<p>No new reward is trained until a pilot succeeds. On paired long traces and sketches, each omitted sentence is inserted back at a fixed position, and the absolute change in the answer’s log probability is recorded. An unrelated sentence of similar length, inserted at the same position, is the control for a change caused by position alone. The score must predict sketch errors better than length. If it does not, probability movement is not used as a deletion rule. Only if the pilot succeeds does a second stage, with three seeds, allow a compressor to drop a sentence when restoration leaves the log probability within a pre-set threshold. The image is not edited, and steps are not scored by a separate process reward.</p>
+<h2>Key Research Questions</h2>
+<ul>
+  <li>Does the change on restoration predict errors better than length, above the unrelated-sentence control?</li>
+  <li>Is the change larger for omitted visual premises than for rewritten arithmetic?</li>
+  <li>When the filter is added, does matched-length accuracy rise only in runs whose pilot succeeded?</li>
+</ul>
+<h2>Expected Outcome</h2>
+<p>The study will either deliver a deletion test based on the model’s own answer probability, or show that this test should not be used.</p>
+<h2>Comparison</h2>
+<table>
+  <thead><tr><th>Insertion</th><th>What it changes</th><th>What it is for</th></tr></thead>
+  <tbody>
+<tr><td>Omitted sentence</td><td>One deleted sentence, fixed site</td><td>Load-bearing check</td></tr>
+<tr><td>Unrelated sentence</td><td>Similar length, same site</td><td>Control for position</td></tr>
+<tr><td>Length alone</td><td>No insertion</td><td>Baseline predictor</td></tr>
+  </tbody>
+</table>
+</body>
+</html>

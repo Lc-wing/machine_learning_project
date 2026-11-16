@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Research Plan: Whether Mean Token Savings Hide Errors in the Long Tail</title>
+<style>
+  @page { size: letter; margin: 0.48in 0.58in; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { font-family: "Liberation Serif", "Times New Roman", Times, serif; font-size: 10.5pt; line-height: 1.26; color: #1a1a1a; }
+  h1 { font-size: 13.5pt; line-height: 1.25; margin: 0 0 2pt; font-weight: 700; }
+  .kicker { font-family: "Liberation Sans", Arial, sans-serif; font-size: 8.5pt; letter-spacing: 0.04em; text-transform: uppercase; color: #555; margin: 0 0 8pt; }
+  h2 { font-family: "Liberation Sans", Arial, sans-serif; font-size: 10.5pt; margin: 7pt 0 1pt; font-weight: 700; }
+  p { margin: 0 0 4pt; }
+  ul { margin: 2pt 0 4pt 1.1em; padding: 0; }
+  li { margin: 0 0 2pt; }
+  table { width: 100%; border-collapse: collapse; margin: 4pt 0 0; font-size: 9pt; line-height: 1.22; }
+  th, td { border: 0.6pt solid #bbb; padding: 2pt 4pt; vertical-align: top; text-align: left; }
+  th { font-family: "Liberation Sans", Arial, sans-serif; background: #f3f3f3; font-weight: 700; }
+</style>
+</head>
+<body>
+<p class="kicker">Research plan · one page · based on SketchThinker-R1 (ICLR 2026)</p>
+<h1>Whether Mean Token Savings Hide Errors in the Long Tail</h1>
+<h2>Working Title</h2>
+<p>Whether Mean Token Savings Hide Errors in the Long Tail.</p>
+<h2>Problem Statement</h2>
+<p>SketchThinker-R1’s token count and its efficiency ratio are means, and reasoning length is heavy-tailed. Sprint or Delve (IJCAI/ECAI 2026) already fits length with a log-normal and softens the penalty on long traces; it does not measure the quantile-conditional accuracy of a style reward on these multimodal benchmarks.</p>
+<h2>Proposed Solution</h2>
+<p>This plan does not change the training penalty. Sketch-style training and the paper’s vanilla R1 baseline are reproduced on Qwen2.5-VL-7B with the paper’s data. Each benchmark is split into quintiles of the baseline’s reasoning length. Accuracy gap, token ratio, and end-to-end latency are reported per quintile, with multiple seeds and confidence intervals. The primary contrast is items above the baseline’s 90th percentile against items below the median. The mean reduction is reported only as a reference. The proposition fails if the accuracy gap does not grow across quintiles. A loss in the tail is not, by itself, evidence that the judge should see the image.</p>
+<h2>Key Research Questions</h2>
+<ul>
+  <li>Does the accuracy gap grow from the shortest quintile to items above the 90th percentile?</li>
+  <li>Does the token reduction in the upper quintile stay as large as the mean reduction?</li>
+  <li>Are upper-quintile losses larger than the binomial uncertainty of that slice?</li>
+</ul>
+<h2>Expected Outcome</h2>
+<p>The study will give a quantile-specific reading of the reported mean reduction, including the slices where that mean misleads.</p>
+<h2>Comparison</h2>
+<table>
+  <thead><tr><th>Summary</th><th>What the paper uses</th><th>This plan</th></tr></thead>
+  <tbody>
+<tr><td>Length</td><td>Mean reasoning tokens</td><td>Quintiles of the baseline length</td></tr>
+<tr><td>Accuracy</td><td>One mean per benchmark</td><td>A gap inside each quintile</td></tr>
+<tr><td>Result that refutes it</td><td>—</td><td>The gap does not grow across quintiles</td></tr>
+  </tbody>
+</table>
+</body>
+</html>

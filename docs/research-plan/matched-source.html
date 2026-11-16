@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Research Plan: Whether the Sketch Style Itself Produced the Gain</title>
+<style>
+  @page { size: letter; margin: 0.48in 0.58in; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { font-family: "Liberation Serif", "Times New Roman", Times, serif; font-size: 10.5pt; line-height: 1.26; color: #1a1a1a; }
+  h1 { font-size: 13.5pt; line-height: 1.25; margin: 0 0 2pt; font-weight: 700; }
+  .kicker { font-family: "Liberation Sans", Arial, sans-serif; font-size: 8.5pt; letter-spacing: 0.04em; text-transform: uppercase; color: #555; margin: 0 0 8pt; }
+  h2 { font-family: "Liberation Sans", Arial, sans-serif; font-size: 10.5pt; margin: 7pt 0 1pt; font-weight: 700; }
+  p { margin: 0 0 4pt; }
+  ul { margin: 2pt 0 4pt 1.1em; padding: 0; }
+  li { margin: 0 0 2pt; }
+  table { width: 100%; border-collapse: collapse; margin: 4pt 0 0; font-size: 9pt; line-height: 1.22; }
+  th, td { border: 0.6pt solid #bbb; padding: 2pt 4pt; vertical-align: top; text-align: left; }
+  th { font-family: "Liberation Sans", Arial, sans-serif; background: #f3f3f3; font-weight: 700; }
+</style>
+</head>
+<body>
+<p class="kicker">Research plan · one page · based on SketchThinker-R1 (ICLR 2026)</p>
+<h1>Whether the Sketch Style Itself Produced the Gain</h1>
+<h2>Working Title</h2>
+<p>Whether the Sketch Style Itself Produced the Gain.</p>
+<h2>Problem Statement</h2>
+<p>Raising SketchThinker-R1’s style-reward weight from 0.05 to 0.1 moves tokens only from 65.2 to 64.3, and the cold-start rewrite is produced by GPT-5, which can change content as well as length. The reported 64% reduction and the accuracy are therefore not yet attributed to the sketch style.</p>
+<h2>Proposed Solution</h2>
+<p>This plan does not propose a new judge. Four arms share the base model, the items, the decoding, and three seeds: the paper’s sketch pipeline; a GPT-5 rewrite that keeps the original length and style, then the same training; reinforcement learning with the style reward set to zero; and answering with no reasoning. The horizontal axis is end-to-end latency, including image tokens, not accuracy divided by reasoning tokens. The style can be credited only if the sketch arm beats both the length-preserving rewrite and the zero-style arm. A win over the length-preserving rewrite alone would still be compatible with the rewriter having changed the content.</p>
+<h2>Key Research Questions</h2>
+<ul>
+  <li>Once the rewriter is held fixed, does shortening still beat a length-preserving rewrite?</li>
+  <li>Does setting the style reward to zero change length or accuracy relative to the default weight?</li>
+  <li>On items where image tokens dominate latency, does cutting reasoning tokens still move end-to-end latency?</li>
+</ul>
+<h2>Expected Outcome</h2>
+<p>The study will attribute the reported gain to the sketch style, to the rewriter, to reinforcement learning, or to the metric.</p>
+<h2>Comparison</h2>
+<table>
+  <thead><tr><th>Arm</th><th>What it holds fixed</th><th>What a sketch loss would mean</th></tr></thead>
+  <tbody>
+<tr><td>Length-preserving rewrite</td><td>Same rewriter, original length</td><td>The gain came from changing content</td></tr>
+<tr><td>Style reward at zero</td><td>Same cold start, no style reward</td><td>The style reward did not cause the shortening</td></tr>
+<tr><td>Direct answer</td><td>No reasoning trace</td><td>The trace was not carrying the accuracy</td></tr>
+  </tbody>
+</table>
+</body>
+</html>

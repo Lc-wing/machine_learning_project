@@ -14,7 +14,7 @@ Results of every conversation with the Cursor agent, in chronological order. Chi
 | [08](2026-10-21-08-conversation-logging.md) | 2026-10-21 | Store every conversation's results in the repository as Markdown | [PR #4](https://github.com/Lc-wing/machine_learning_project/pull/4) awaiting merge |
 | [09](2026-10-21-09-bilingual-logs.md) | 2026-10-21 | Keep separate all-Chinese and all-English versions of the records | [PR #4](https://github.com/Lc-wing/machine_learning_project/pull/4) awaiting merge |
 | [10](2026-10-21-10-sketchthinker-future-directions.md) | 2026-10-21 | Three future directions that address the SketchThinker-R1 limitations | Done |
-| [11](2026-10-21-11-sketchthinker-existing-directions.md) | 2026-10-21 | Three more directions, prior work allowed | Done |
+| [11](2026-10-21-11-sketchthinker-existing-directions.md) | 2026-10-21 | Three more directions, prior work allowed | Replaced by 24; original kept |
 | [12](2026-10-21-12-direction-questions-experiments.md) | 2026-10-21 | A research question and a validating experiment for every direction | Done; direction 3's criterion corrected |
 | [13](2026-10-21-13-answer-check.md) | 2026-10-21 | Check whether the previous answer matched the question | Done |
 | [14](2026-10-21-14-research-plan.md) | 2026-10-21 | One-page research plan: image-conditioned sufficiency | Done; see `docs/research-plan/sketch-sufficiency.pdf` |
@@ -25,4 +25,9 @@ Results of every conversation with the Cursor agent, in chronological order. Chi
 | [19](2026-10-23-19-paper-analysis-skill-review.md) | 2026-10-23 | Fresh skill-based paper analysis, three probed directions, chosen plan, and full Chinese translation | Merged (PR #11) |
 | [20](2026-10-23-20-sync-proposal-script-outline.md) | 2026-10-23 | Sync proposal and speaker script with revised plan; slide outline | Merged in PR #12 |
 | [21](2026-10-23-21-readme-refresh.md) | 2026-10-23 | Rewrite README.md to reflect the repository | Merged in PR #13 |
-| [22](2026-11-10-22-academic-research-skills.md) | 2026-11-10 | Install the five academic-research-skills | This branch; awaiting merge |
+| [22](2026-11-10-22-academic-research-skills.md) | 2026-11-10 | Install the five academic-research-skills | Merged in PR #14 |
+| [24](2026-11-10-24-replace-direction-11.md) | 2026-11-10 | Replace record 11 with three directions that have not been done | Merged in PR #16 |
+| [25](2026-11-10-25-judge-image-sufficiency.md) | 2026-11-10 | Six research questions, and whether image-conditioned sufficiency should be the plan | Merged in PR #17 |
+| [26](2026-11-10-26-plan-versus-pain-point.md) | 2026-11-10 | Whether the current one-page plan hits the paper's largest pain point | Merged in PR #18; edits are in 27 |
+| [27](2026-11-10-27-revise-one-page-plan.md) | 2026-11-10 | Apply the four proposed edits to the one-page plan | Merged in PR #18; PDF remains one page |
+| [28](2026-11-10-28-five-rough-plans.md) | 2026-11-10 | One-page English plans for the other five directions | Merged in PR #19; each PDF is one page |

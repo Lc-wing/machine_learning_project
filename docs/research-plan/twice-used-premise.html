@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Research Plan: When a Numbered Sketch Drops a Premise Used Twice</title>
+<style>
+  @page { size: letter; margin: 0.48in 0.58in; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { font-family: "Liberation Serif", "Times New Roman", Times, serif; font-size: 10.5pt; line-height: 1.26; color: #1a1a1a; }
+  h1 { font-size: 13.5pt; line-height: 1.25; margin: 0 0 2pt; font-weight: 700; }
+  .kicker { font-family: "Liberation Sans", Arial, sans-serif; font-size: 8.5pt; letter-spacing: 0.04em; text-transform: uppercase; color: #555; margin: 0 0 8pt; }
+  h2 { font-family: "Liberation Sans", Arial, sans-serif; font-size: 10.5pt; margin: 7pt 0 1pt; font-weight: 700; }
+  p { margin: 0 0 4pt; }
+  ul { margin: 2pt 0 4pt 1.1em; padding: 0; }
+  li { margin: 0 0 2pt; }
+  table { width: 100%; border-collapse: collapse; margin: 4pt 0 0; font-size: 9pt; line-height: 1.22; }
+  th, td { border: 0.6pt solid #bbb; padding: 2pt 4pt; vertical-align: top; text-align: left; }
+  th { font-family: "Liberation Sans", Arial, sans-serif; background: #f3f3f3; font-weight: 700; }
+</style>
+</head>
+<body>
+<p class="kicker">Research plan · one page · based on SketchThinker-R1 (ICLR 2026)</p>
+<h1>When a Numbered Sketch Drops a Premise Used Twice</h1>
+<h2>Working Title</h2>
+<p>When a Numbered Sketch Drops a Premise Used Twice.</p>
+<h2>Problem Statement</h2>
+<p>SketchThinker-R1’s rewriting prompt requires an order-preserving numbered list, which has no mark for a visual fact used by two later steps. A linear list can treat that shared premise as a deletable detail, so the second use becomes a number with no justification.</p>
+<h2>Proposed Solution</h2>
+<p>This plan does not attach an existing reflection pruner. Graph-based chain-of-thought pruning removes low-impact reflections; it does not protect a premise whose out-degree is at least two, and it is text-only. Geometry items will be selected or rewritten so that one length or angle is a premise of two deductions, with that dependency annotated and valid alternative proofs accepted. A numbered-list sketch will be compared, at a matched length budget on Qwen2.5-VL-7B, with a sketch required to point again at any premise used twice. The measures are the drop rate of the shared fact and the accuracy of the second use. The proposition fails if those two quantities match.</p>
+<h2>Key Research Questions</h2>
+<ul>
+  <li>Are premises used twice dropped more often than premises used once?</li>
+  <li>Does the accuracy loss sit on the second use rather than the first?</li>
+  <li>Does requiring an explicit back-reference recover the second use inside the same length budget?</li>
+</ul>
+<h2>Expected Outcome</h2>
+<p>The study will show whether the numbered-list format, rather than brevity alone, deletes visual premises that later steps share.</p>
+<h2>Comparison</h2>
+<table>
+  <thead><tr><th></th><th>Numbered list</th><th>Dependency sketch</th></tr></thead>
+  <tbody>
+<tr><td>Mark for a shared premise</td><td>None</td><td>A premise used twice must be pointed to again</td></tr>
+<tr><td>What is counted</td><td>Drop rate of the shared fact; accuracy of the second use</td><td>The same two counts</td></tr>
+<tr><td>Result that refutes it</td><td>—</td><td>Drop rate and second-use accuracy match the numbered list</td></tr>
+  </tbody>
+</table>
+</body>
+</html>
