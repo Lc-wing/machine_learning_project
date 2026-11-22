@@ -6,7 +6,7 @@
 - Status: branch [plan-skill-review](https://github.com/Lc-wing/machine_learning_project/tree/plan-skill-review), PR to main (builds on PR #9); not merged
 
 ## Request
-Have Codex CLI re-review the one-page plan (docs/research-plan/sketch-sufficiency.html/.pdf) using the three installed research skill collections, fix real problems, keep it to one page, and update GitHub and Google Drive.
+Have Codex CLI re-review the one-page plan (docs/research-plan/image-sufficiency/sketch-sufficiency.html/.pdf) using the three installed research skill collections, fix real problems, keep it to one page, and update GitHub and Google Drive.
 
 ## Result
 Codex used academic-research-suite (academic-research-skills-codex), scientific-critical-thinking (K-Dense-AI scientific-agent-skills), and brainstorming-research-ideas (Orchestra AI-Research-SKILLs). It found no critical issues, two major and four moderate ones:
@@ -17,7 +17,7 @@ Codex used academic-research-suite (academic-research-skills-codex), scientific-
 5. RQ3 replaced: correctness on both images of a pair, plus an image-blind judge ablation.
 6. Named the Qwen2.5-VL-7B-Instruct backbone; difficulty groups are set before training.
 
-Full review: docs/research-plan/notes/skill-review.md.
+Full review: docs/research-plan/image-sufficiency/notes/skill-review.md.
 
 ## Verification
 PDF rebuilt with headless Chrome; pdfinfo Pages: 1; render checked visually; all five sections present; numbers checked against the paper text.

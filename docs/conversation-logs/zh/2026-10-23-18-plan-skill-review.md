@@ -6,7 +6,7 @@
 - 状态：分支 [plan-skill-review](https://github.com/Lc-wing/machine_learning_project/tree/plan-skill-review)，已向 main 提交 PR（基于 PR #9），未合并
 
 ## 请求
-让 Codex CLI 使用三套新安装的研究技能复审单页研究计划（docs/research-plan/sketch-sufficiency.html/.pdf），修正实际问题，保持单页，并更新 GitHub 和 Google Drive。
+让 Codex CLI 使用三套新安装的研究技能复审单页研究计划（docs/research-plan/image-sufficiency/sketch-sufficiency.html/.pdf），修正实际问题，保持单页，并更新 GitHub 和 Google Drive。
 
 ## 结果
 Codex 使用了 academic-research-suite（academic-research-skills-codex）、scientific-critical-thinking（K-Dense-AI scientific-agent-skills）和 brainstorming-research-ideas（Orchestra AI-Research-SKILLs）。没有严重问题，发现两个重要问题和四个中等问题：
@@ -17,7 +17,7 @@ Codex 使用了 academic-research-suite（academic-research-skills-codex）、sc
 5. 研究问题 3 改为图像对两张图都答对的比例，并加入不看图的评判模型消融。
 6. 明确使用 Qwen2.5-VL-7B-Instruct；难度分组在训练前确定。
 
-完整评审：docs/research-plan/notes/skill-review.md。
+完整评审：docs/research-plan/image-sufficiency/notes/skill-review.md。
 
 ## 验证
 用无头 Chrome 重新生成 PDF；pdfinfo 显示 1 页；已目视检查渲染结果；五个部分齐全；数字已与论文原文核对。

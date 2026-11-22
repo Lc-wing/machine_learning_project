@@ -2,7 +2,7 @@
 
 - 日期：2026-11-10
 - 承接：[10](2026-10-21-10-sketchthinker-future-directions.md)、[24](2026-11-10-24-replace-direction-11.md)、[25](2026-11-10-25-judge-image-sufficiency.md)
-- 对照的计划：`docs/research-plan/sketch-sufficiency.html`（标题为 Preserving Visual Evidence in Compressed Multimodal Reasoning）。只提出修改，不改计划正文。
+- 对照的计划：`docs/research-plan/image-sufficiency/sketch-sufficiency.html`（标题为 Preserving Visual Evidence in Compressed Multimodal Reasoning）。只提出修改，不改计划正文。
 - 英文版：[点此查看](../en/2026-11-10-26-plan-versus-pain-point.md)
 
 ## 结论

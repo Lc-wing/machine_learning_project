@@ -6,7 +6,7 @@ Date: 2026-10-23. Status: PR open on branch [sync-proposal-ppt](https://github.c
 
 ## Request
 
-Bring the formal research proposal and the presentation in line with the revised one-page plan (`docs/research-plan/sketch-sufficiency.html`) and the revised paper analysis. Mid-task the scope changed: finish the proposal and speaker script, and replace the slide rebuild with a slide-by-slide outline. Upload results to Google Drive.
+Bring the formal research proposal and the presentation in line with the revised one-page plan (`docs/research-plan/image-sufficiency/sketch-sufficiency.html`) and the revised paper analysis. Mid-task the scope changed: finish the proposal and speaker script, and replace the slide rebuild with a slide-by-slide outline. Upload results to Google Drive.
 
 ## Result
 

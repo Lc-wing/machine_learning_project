@@ -19,7 +19,7 @@ The analysis finds that SketchJudge rewards a textual style and never checks whe
 |---|---|---|---|
 | Paper analysis | [EN (md)](docs/paper-analysis/sketchthinker-analysis.md) · [EN (pdf)](docs/paper-analysis/sketchthinker-analysis.pdf) · [ZH (md)](docs/paper-analysis/sketchthinker-analysis.zh.md) · [ZH (pdf)](docs/paper-analysis/sketchthinker-analysis.zh.pdf) | Five limitations (L1–L5), three research directions, and a research question plus validating experiment for each direction | Done |
 | Analysis review notes | [skill-review.md](docs/paper-analysis/notes/skill-review.md) | Skill-based review log and attribution for the analysis | Done |
-| One-page research plan | [HTML](docs/research-plan/sketch-sufficiency.html) · [PDF](docs/research-plan/sketch-sufficiency.pdf) · [review notes](docs/research-plan/notes/skill-review.md) | Problem, proposed solution, key questions, and expected outcome on one page | Done |
+| One-page research plans | [index](docs/research-plan/README.md) | Six directions, one folder each; the developed direction is [image sufficiency](docs/research-plan/image-sufficiency/README.md) | Done |
 | Formal research proposal | [LaTeX](docs/research-proposal/sketch-sufficiency-proposal.tex) · [PDF](docs/research-proposal/sketch-sufficiency-proposal.pdf) · [notes](docs/research-proposal/notes/) | Introduction, related work, method, experimental plan, expected results and timeline; 4-page body plus references | Done |
 | Speaker script | [Markdown](docs/presentation/speaker-script.md) · [Word](docs/presentation/speaker-script.docx) · [talk-content.json](docs/presentation/talk-content.json) | Script for 16 slides, 1,947 words, 15:00 at 130 wpm (analysis 12:00, plan pitch 3:00) | Done |
 | Slide outline | [slide-outline.md](docs/presentation/slide-outline.md) | Slide-by-slide title, key points, visual, and timing; the current plan for the deck | Done |
@@ -38,7 +38,7 @@ The analysis finds that SketchJudge rewards a textual style and never checks whe
 │   └── skills/                      # ai-scientist, first-principles-assumption-inverter, gap-contradiction-miner
 └── docs/
     ├── paper-analysis/              # analysis (EN/ZH, md + pdf), notes/
-    ├── research-plan/               # one-page plan (html + pdf), notes/
+    ├── research-plan/               # six direction folders; see its README.md
     ├── research-proposal/           # proposal (tex + pdf), notes/ 00–07
     ├── presentation/                # script, outline, pptx, builder, figures/, output/, paper/
     └── conversation-logs/           # en/ and zh/ records with README indexes
@@ -53,10 +53,10 @@ cd docs/research-proposal
 pdflatex sketch-sufficiency-proposal.tex && pdflatex sketch-sufficiency-proposal.tex
 ```
 
-**One-page plan:**
+**One-page plan** (image sufficiency; the other five plans use the same command inside their own folders):
 
 ```bash
-cd docs/research-plan
+cd docs/research-plan/image-sufficiency
 google-chrome --headless --no-pdf-header-footer --print-to-pdf=sketch-sufficiency.pdf sketch-sufficiency.html
 ```
 
@@ -81,4 +81,4 @@ Every session's request, result, and status is recorded in [docs/conversation-lo
 
 ## 中文简介
 
-本仓库是机器学习课程期末项目：分析 ICLR 2026 论文 SketchThinker-R1，总结其方法局限，提出三个研究方向，并将“图像感知的充分性奖励”方向发展为一页研究计划、正式研究提案（LaTeX，正文 4 页加参考文献）和 15 分钟报告（讲稿与幻灯片大纲已完成，现有 `.pptx` 为旧版，尚未按新大纲重建）。论文分析有中英文两版，每次对话的结果以中英文分别记录在 `docs/conversation-logs/`。
+本仓库是机器学习课程期末项目：分析 ICLR 2026 论文 SketchThinker-R1，总结其方法局限，提出三个研究方向，并将“图像感知的充分性奖励”方向发展为一页研究计划、正式研究提案（LaTeX，正文 4 页加参考文献）和 15 分钟报告。另外五个方向的一页计划分别放在 `docs/research-plan/` 下各自的文件夹里，目录见 [docs/research-plan/README.md](docs/research-plan/README.md)。讲稿与幻灯片大纲已完成，现有 `.pptx` 为旧版，尚未按新大纲重建。论文分析有中英文两版，每次对话的结果以中英文分别记录在 `docs/conversation-logs/`。

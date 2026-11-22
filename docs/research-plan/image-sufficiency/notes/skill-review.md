@@ -1,6 +1,6 @@
 # Skill-based review of the sketch-sufficiency research plan
 
-Reviewed on 2026-10-23. Review target: `docs/research-plan/sketch-sufficiency.html`; source of scientific claims: `docs/presentation/paper/2601.02825.txt`. Source locations below are text-file line numbers and section/table identifiers, not inferred PDF page numbers.
+Reviewed on 2026-10-23. Review target: `docs/research-plan/image-sufficiency/sketch-sufficiency.html`; source of scientific claims: `docs/presentation/paper/2601.02825.txt`. Source locations below are text-file line numbers and section/table identifiers, not inferred PDF page numbers.
 
 ## Skills used
 
@@ -84,8 +84,8 @@ Validation performed:
 
 - Parsed the final HTML: all five required sections; two Problem Statement sentences; one Proposed Solution paragraph; three question bullets; one Expected Outcome sentence.
 - Attempted the exact supplied Chrome build command. It failed creating its default profile. A writable temporary profile exposed container socket restrictions (`setsockopt: Operation not permitted`); attempts with Chrome's crash-handler/sandbox startup flags still failed at `sandbox_host_linux.cc` with `shutdown: Operation not permitted`.
-- **Build fallback:** rebuilt `docs/research-plan/sketch-sufficiency.pdf` directly from the final HTML body and stylesheet using installed PyMuPDF 2.0 / MuPDF 1.28.5 `Story` and `DocumentWriter`. Embedded the installed Liberation Serif/Sans regular/bold fonts, used a 612 × 792 pt Letter page and the HTML's 0.48 in vertical / 0.58 in horizontal margins, and allowed natural pagination without shrinking text. The PDF creator metadata identifies the fallback. This is a rebuilt PDF, not a successful Chrome build; exact Chrome rendering remains unverified in this container.
-- Ran `pdfinfo docs/research-plan/sketch-sufficiency.pdf`: **`Pages: 1`**, `Page size: 612 x 792 pts (letter)`.
+- **Build fallback:** rebuilt `docs/research-plan/image-sufficiency/sketch-sufficiency.pdf` directly from the final HTML body and stylesheet using installed PyMuPDF 2.0 / MuPDF 1.28.5 `Story` and `DocumentWriter`. Embedded the installed Liberation Serif/Sans regular/bold fonts, used a 612 × 792 pt Letter page and the HTML's 0.48 in vertical / 0.58 in horizontal margins, and allowed natural pagination without shrinking text. The PDF creator metadata identifies the fallback. This is a rebuilt PDF, not a successful Chrome build; exact Chrome rendering remains unverified in this container.
+- Ran `pdfinfo docs/research-plan/image-sufficiency/sketch-sufficiency.pdf`: **`Pages: 1`**, `Page size: 612 x 792 pts (letter)`.
 - Compared every HTML body character with extracted PDF text after removing whitespace and rendered bullet markers: identical text in order, including the final outcome. All extracted text bounds lie inside the page.
 - Rendered the final PDF with `pdftoppm` and inspected it: readable text, all headings and three bullets visible, no clipping or overflow.
 - Ran `git diff --check`: clean. No commit made. The pre-existing untracked `.agents/skills/nature-figure/scripts/__pycache__/` was left untouched.
