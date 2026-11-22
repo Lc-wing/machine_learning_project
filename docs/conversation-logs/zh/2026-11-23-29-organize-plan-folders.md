@@ -1,7 +1,7 @@
 # 29 按方向拆分一页研究计划
 
 - 日期：2026-11-23
-- 状态：分支 `cursor/organize-research-plans-ab75`，待合并
+- 状态：已通过 [拉取请求 #20](https://github.com/Lc-wing/machine_learning_project/pull/20) 合并
 - 英文版：[点此查看](../en/2026-11-23-29-organize-plan-folders.md)
 
 ## 请求

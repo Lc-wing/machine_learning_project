@@ -31,4 +31,4 @@ Results of every conversation with the Cursor agent, in chronological order. Chi
 | [26](2026-11-10-26-plan-versus-pain-point.md) | 2026-11-10 | Whether the current one-page plan hits the paper's largest pain point | Merged in PR #18; edits are in 27 |
 | [27](2026-11-10-27-revise-one-page-plan.md) | 2026-11-10 | Apply the four proposed edits to the one-page plan | Merged in PR #18; PDF remains one page |
 | [28](2026-11-10-28-five-rough-plans.md) | 2026-11-10 | One-page English plans for the other five directions | Merged in PR #19; each PDF is one page |
-| [29](2026-11-23-29-organize-plan-folders.md) | 2026-11-23 | Split the one-page plans into one folder per direction | This branch; awaiting merge |
+| [29](2026-11-23-29-organize-plan-folders.md) | 2026-11-23 | Split the one-page plans into one folder per direction | Merged in PR #20 |

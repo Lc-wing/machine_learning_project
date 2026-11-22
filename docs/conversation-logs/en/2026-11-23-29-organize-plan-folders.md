@@ -1,7 +1,7 @@
 # 29 Split the one-page plans into one folder per direction
 
 - Date: 2026-11-23
-- Status: Branch `cursor/organize-research-plans-ab75`, awaiting merge
+- Status: Merged in [PR #20](https://github.com/Lc-wing/machine_learning_project/pull/20)
 - Chinese version: [中文](../zh/2026-11-23-29-organize-plan-folders.md)
 
 ## Request
