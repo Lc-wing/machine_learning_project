@@ -17,7 +17,7 @@
 | [11](2026-10-21-11-sketchthinker-existing-directions.md) | 2026-10-21 | 再给三个方向（允许已有人做过） | 已被 24 替代；原文保留 |
 | [12](2026-10-21-12-direction-questions-experiments.md) | 2026-10-21 | 每个方向的研究问题与验证实验 | 已完成；方向三的验证判据已更正 |
 | [13](2026-10-21-13-answer-check.md) | 2026-10-21 | 检查上一轮答案是否符合问题 | 已完成 |
-| [14](2026-10-21-14-research-plan.md) | 2026-10-21 | 一页研究计划：看见图像的充分性奖励 | 已完成，见 `docs/research-plan/sketch-sufficiency.pdf` |
+| [14](2026-10-21-14-research-plan.md) | 2026-10-21 | 一页研究计划：看见图像的充分性奖励 | 已完成，见 `docs/research-plan/image-sufficiency/sketch-sufficiency.pdf` |
 | [15](2026-10-22-15-formal-research-proposal.md) | 2026-10-22 | 正式研究计划书：在压缩多模态推理中保留视觉证据 | 已通过 PR #7 合并；正文四页，参考文献另起一页 |
 | [16](2026-10-22-16-proposal-audit-fixes.md) | 2026-10-22 | 研究计划书审计修订：问题 1–14 及 M1–M5 | 已通过 PR #8 合并；正文四页及参考文献 |
 | [17](2026-10-22-17-iclr-venue-fix.md) | 2026-10-22 | SketchThinker-R1 发表信息更正：ICLR 2026 | 已在 PR #9 合并 |
@@ -31,3 +31,4 @@
 | [26](2026-11-10-26-plan-versus-pain-point.md) | 2026-11-10 | 现有一页计划是否打中论文最大的痛点 | 已在拉取请求 #18 合并；修改见 27 |
 | [27](2026-11-10-27-revise-one-page-plan.md) | 2026-11-10 | 按四处建议修订一页计划 | 已在拉取请求 #18 合并；PDF 仍为一页 |
 | [28](2026-11-10-28-five-rough-plans.md) | 2026-11-10 | 为其余五个方向各写一页英文研究计划 | 已在拉取请求 #19 合并；五份 PDF 均为一页 |
+| [29](2026-11-23-29-organize-plan-folders.md) | 2026-11-23 | 按方向拆分一页研究计划 | 本分支，待合并 |

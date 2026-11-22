@@ -6,7 +6,7 @@
 
 ## 请求
 
-让正式研究计划书和演讲材料与修订后的单页计划（`docs/research-plan/sketch-sufficiency.html`）及修订后的论文分析一致。任务中途范围调整：完成计划书和演讲稿，幻灯片改为逐页大纲，不重建；结果上传到 Google Drive。
+让正式研究计划书和演讲材料与修订后的单页计划（`docs/research-plan/image-sufficiency/sketch-sufficiency.html`）及修订后的论文分析一致。任务中途范围调整：完成计划书和演讲稿，幻灯片改为逐页大纲，不重建；结果上传到 Google Drive。
 
 ## 结果
 

@@ -2,7 +2,7 @@
 
 - Date: 2026-11-10
 - Follows: [10](2026-10-21-10-sketchthinker-future-directions.md), [24](2026-11-10-24-replace-direction-11.md), [25](2026-11-10-25-judge-image-sufficiency.md)
-- Plan compared: `docs/research-plan/sketch-sufficiency.html`, titled Preserving Visual Evidence in Compressed Multimodal Reasoning. Modifications are proposed only. The plan file was not edited.
+- Plan compared: `docs/research-plan/image-sufficiency/sketch-sufficiency.html`, titled Preserving Visual Evidence in Compressed Multimodal Reasoning. Modifications are proposed only. The plan file was not edited.
 - Chinese version: [中文](../zh/2026-11-10-26-plan-versus-pain-point.md)
 
 ## Conclusion

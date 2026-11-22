@@ -1,6 +1,6 @@
 # Skill review, evidence audit, and plan decision
 
-Date: 2026-10-23. Branch: `analysis-skill-review`. Deliverables: [English analysis](../sketchthinker-analysis.md), [Chinese analysis](../sketchthinker-analysis.zh.md), and the rewritten [one-page plan](../../research-plan/sketch-sufficiency.html). No research experiments were run. All proposed sample sizes, success margins, operating budgets, and resource ceilings are design choices.
+Date: 2026-10-23. Branch: `analysis-skill-review`. Deliverables: [English analysis](../sketchthinker-analysis.md), [Chinese analysis](../sketchthinker-analysis.zh.md), and the rewritten [one-page plan](../../research-plan/image-sufficiency/sketch-sufficiency.html). No research experiments were run. All proposed sample sizes, success margins, operating budgets, and resource ceilings are design choices.
 
 ## Skills actually used, by collection
 

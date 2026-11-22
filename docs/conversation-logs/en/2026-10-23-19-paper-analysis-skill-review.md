@@ -32,7 +32,7 @@ All sizes, thresholds, and caps below are proposed design choices. Shared rules 
 
 ## One-page plan and deliverables
 
-The existing rewritten [one-page plan](../../research-plan/sketch-sufficiency.html), *Preserving Visual Evidence in Compressed Multimodal Reasoning*, follows Direction 1. It frames the missing-premise problem, compares four rewards on 3,000 problems, accepts alternative derivations, and includes independent human evaluation, matched compute/length, ablations, three seeds, and a pilot. This editorial pass preserves that HTML and its PDF; the analysis remains aligned with it.
+The existing rewritten [one-page plan](../../research-plan/image-sufficiency/sketch-sufficiency.html), *Preserving Visual Evidence in Compressed Multimodal Reasoning*, follows Direction 1. It frames the missing-premise problem, compares four rewards on 3,000 problems, accepts alternative derivations, and includes independent human evaluation, matched compute/length, ablations, three seeds, and a pilot. This editorial pass preserves that HTML and its PDF; the analysis remains aligned with it.
 
 Direction 1 was chosen because it directly tests the reward's target with observable omission labels and can begin with inexpensive judge diagnostics. Direction 2 overlaps adaptive allocation and needs precise group-level estimates. Direction 3 provides valuable attribution but has a larger factorial workload. The analysis folder contains the final English, full Chinese translation, and skill-review note. Both language indexes receive record 19. The root README has no documentation-folder index, so its conditional update does not apply.
 
